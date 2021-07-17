@@ -18,3 +18,9 @@
 ;;     (narrow-to-region 1 (buffer-size switch-buffer-functions--last-buffer))
 ;;   )
 ;; )
+
+(require 'netease-cloud-music)
+
+(setq elfeed-feeds
+      '(("https://mangatalk.net/feed" mangatalk)
+        ))

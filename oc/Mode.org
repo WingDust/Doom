@@ -43,3 +43,18 @@
 #+end_src
 - [[https://www.gnu.org/software/emacs/manual/html_node/eintr/Buffer-Size-_0026-Locations.html][Buffer Size and the Location of Point]]
 - [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Narrowing.html][Narrowing]]
+  
+* 网易云音乐
+
+#+begin_src emacs-lisp
+(require 'netease-cloud-music)
+#+end_src
+
+* elfeed
+
+#+begin_src emacs-lisp
+(setq elfeed-feeds
+      '(("https://mangatalk.net/feed" mangatalk)
+        ))
+#+end_src
+

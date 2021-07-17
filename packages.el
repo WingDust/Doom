@@ -61,10 +61,15 @@
 (package! valign)
 (package! centered-window-mode)
 (package! switch-buffer-functions)
+(package! elfeed)
 
 
 (package! auto-save :recipe (:host github :repo "manateelazycat/auto-save"))
 (package! org-starless :recipe (:host github :repo "TonCherAmi/org-starless"))
+
+(package! request)
+(package! netease-cloud-music :recipe (:host github :repo "SpringHan/netease-cloud-music.el"))
+
 ;;(package! ob-powershell :recipe (:local-repo "~/.doom.d/local/ob-powershell.el"))
 ;;(add-load-path! "~/.doom.d/local/ob-powershell.el")
 ;;;
