@@ -1,0 +1,49 @@
+#+TITLE: Keybinding
+* C-h
+#+begin_src emacs-lisp
+;;(define-key isearch-mode-map (kbd "C-h") 'isearch-delete-char)
+;;(map! :ie "C-h" #'backward-delete-char-untabify)
+(map! :ie "C-h" #'backward-delete-char)
+(define-key input-decode-map (kbd "C-h") (kbd "DEL"))
+(global-set-key (kbd "C-h") 'delete-backward-char)
+#+end_src
+- R:
+  - [[https://emacs.stackexchange.com/questions/35524/how-to-remap-backward-delete-and-help-command-while-using-emacs-from-a-terminal][How to remap backward-delete and help command while using Emacs from a terminal emulator?]]
+  - [[https://github.com/hlissner/doom-emacs/issues/901][[Question] Remap C-h]]
+* SPA f j dired-jump
+#+begin_src emacs-lisp
+(map! :n "SPC f j" #'dired-jump)
+#+end_src
+- R:
+  - [[https://www.cheng92.com/emacs/my-emacs-configuration/#headline-14][key 绑定函数]]
+
+* C-s swiper
+#+begin_src emacs-lisp
+(global-set-key "\C-s" 'swiper)
+#+end_src
+* 手动显示
+#+begin_src emacs-lisp
+(global-set-key (kbd"C-c C-d")
+        (lambda () (interactive)
+          (setq debug-on-error (if debug-on-error nil t))
+          (message (format"debug-on-error : %s" debug-on-error))))
+#+end_src
+
+* 注释当前行
+
+#+begin_src emacs-lisp
+(global-set-key (kbd "C-;") 'comment-line)
+#+end_src
+
+* tab 匹配 pair
+
+#+begin_src emacs-lisp
+(global-evil-matchit-mode 1)
+(evil-define-key 'normal 'global (kbd "<tab>")  'evil-jump-item)
+#+end_src
+
+* 翻译光标下的单词
+
+#+begin_src emacs-lisp
+(map! :n "SPC o y" #'youdao-dictionary-search-at-point+)
+#+end_src

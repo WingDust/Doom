@@ -1,0 +1,93 @@
+#+TITLE: Org Config
+*  直接显示 加粗 、 删除线 、 强调
+
+#+begin_src emacs-lisp
+(setq org-hide-emphasis-markers t)
+#+end_src
+- R
+
+* 去掉标题的小白点
+
+    #+begin_src emacs-lisp
+    (setq org-superstar-leading-bullet "  ")
+    #+end_src
+
+* 将空行作为 Org Mode 内容一部分，以解决展开标题不会展开空行
+
+    #+begin_src emacs-lisp
+    (setq org-cycle-separator-lines -1)
+    #+end_src
+    - [[https://stackoverflow.com/questions/40332479/org-mode-folding-considers-whitespace-as-content][org-mode folding considers whitespace as content]]
+    - [[https://emacs.stackexchange.com/questions/21789/org-mode-blank-line-at-the-end-of-tree][Org-mode blank line at the end of tree]]
+    - [[https://www.reddit.com/r/emacs/comments/749t8a/keep_a_blank_line_after_a_code_block_in_orgmode/][Keep a blank line after a code block in org-mode]]
+
+* Org mode literate Programming
+** python
+
+#+begin_src emacs-lisp
+;;;'org-babel-execute:python
+(setq python-shell-interpreter "e:\\python\\python3.8.1\\python.exe"
+        org-babel-python-command "e:\\python\\python3.8.1\\python.exe"
+        )
+#+end_src
+
+** js
+
+#+begin_src emacs-lisp
+(require 'ob-js)
+#+end_src
+
+
+** load
+
+#+begin_src emacs-lisp
+(with-eval-after-load 'org
+    (org-babel-do-load-languages
+    'org-babel-load-languages
+    '(  (emacs-lisp . t)
+        (python . t)
+        (js . t)
+        (rust . t)
+        (deno . t)
+        ;;(powershell . t)
+    ))
+)
+#+end_src
+
+* Org 列表显示为 dot 字符
+
+#+begin_src emacs-lisp
+ (font-lock-add-keywords 'org-mode
+                          '(("^ *\\([-]\\) "
+                             (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+#+end_src
+- [[https://zzamboni.org/post/beautifying-org-mode-in-emacs/][list markers]]
+
+* Tag 右对齐
+
+#+begin_src emacs-lisp
+(setq org-tags-column -77)
+#+end_src
+- [[https://emacs-china.org/t/org-mode-tag/8238][org mode TAG 不能右边对齐了]]
+
+* 折叠字符
+
+#+begin_src emacs-lisp
+(setq org-ellipsis "⤵")
+#+end_src
+
+* 隐藏 heading * 符号
+#+begin_quote
+对于这些不在 Elpa 上需要 require 
+#+end_quote
+#+begin_src emacs-lisp
+(require 'org-starless)
+(add-hook 'org-mode-hook #'org-starless-mode)
+#+end_src
+
+* 对齐 Org mode 的表格
+
+#+begin_src emacs-lisp
+(add-hook 'org-mode-hook #'valign-mode)
+(add-hook 'markdown-mode-hook #'valign-mode)
+#+end_src

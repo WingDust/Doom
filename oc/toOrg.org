@@ -1,0 +1,48 @@
+* 设置字体
+
+#+begin_src emacs-lisp
+(setq doom-font
+      (font-spec :family "Source Code Variable"
+                 :size 18
+       )
+      )
+#+end_src
+* 窗口最大化
+
+#+begin_src emacs-lisp
+(add-hook 'window-setup-hook #'toggle-frame-fullscreen)
+#+end_src
+- R:
+  - [[https://emacs-china.org/t/doom-emacs/10434][doom emacs 如何设置启动后窗口的大小?]]
+
+* 窗口透明
+
+#+begin_src emacs-lisp
+ ;;transparent adjustment
+ (set-frame-parameter (selected-frame)'alpha '(90 . 90))
+ (add-to-list 'default-frame-alist'(alpha . (90 . 90)))
+#+end_src
+- R:
+  - =M-x doom/set-frame-opacity=
+  - [[https://www.reddit.com/r/emacs/comments/8oongp/making_the_background_transparent_but_not_the/][Making the background transparent but not the text in emacs?]]
+  - [[https://emacs-china.org/t/topic/2405][Emacs 透明窗口]]
+
+* SPA 选择窗口
+
+#+begin_src emacs-lisp
+;;(map! :leader
+;;  "0" 'winum-select-window-0-or-10
+;;  "1" 'winum-select-window-1
+;;  "2" 'winum-select-window-2
+;;  "3" 'winum-select-window-3
+;;  "4" 'winum-select-window-4
+;;  "8" 'split-window-below
+;;  "9" 'split-window-right
+;;  )
+#+end_src
+
+*  使用系统废纸篓删除文件
+
+#+begin_src emacs-lisp
+;;(setq delete-by-moving-to-trash t)
+#+end_src

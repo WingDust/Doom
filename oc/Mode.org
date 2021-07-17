@@ -1,0 +1,45 @@
+#+TITLE: Mode
+
+* auto save
+
+#+begin_src emacs-lisp
+(require 'auto-save)
+(auto-save-enable)
+#+end_src
+
+* 一个 buffer 时居中 buffer
+
+#+begin_src emacs-lisp
+(centered-window-mode t)
+#+end_src
+
+
+* scratch 默认使用 lisp-interaction-mode
+
+#+begin_src emacs-lisp
+(with-current-buffer "*scratch*"
+  (lisp-interaction-mode)
+    )
+#+end_src
+
+* 禁用 Doom 默认删除尾部空格
+
+#+begin_src emacs-lisp
+;;(package! ws-butler :disable t)
+#+end_src
+
+* 删除空格
+
+#+begin_src emacs-lisp
+(add-hook 'switch-buffer-functions
+          (lambda (prev curr)
+            (cl-assert (eq curr (current-buffer)))  ;; Always t
+            (delete-trailing-whitespace)))
+;; (save-excursion
+;;   (save-restriction
+;;     (narrow-to-region 1 (buffer-size switch-buffer-functions--last-buffer))
+;;   )
+;; )
+#+end_src
+- [[https://www.gnu.org/software/emacs/manual/html_node/eintr/Buffer-Size-_0026-Locations.html][Buffer Size and the Location of Point]]
+- [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Narrowing.html][Narrowing]]
