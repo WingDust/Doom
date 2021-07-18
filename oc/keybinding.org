@@ -21,7 +21,7 @@
 #+begin_src emacs-lisp
 (global-set-key "\C-s" 'swiper)
 #+end_src
-* 手动显示
+ 手动显示
 #+begin_src emacs-lisp
 (global-set-key (kbd"C-c C-d")
         (lambda () (interactive)
@@ -46,4 +46,16 @@
 
 #+begin_src emacs-lisp
 (map! :n "SPC o y" #'youdao-dictionary-search-at-point+)
+#+end_src
+
+* C-p 上一个
+
+#+begin_src emacs-lisp
+(map! :i "C-p" #'previous-line)
+#+end_src
+
+* C-n 上一个 
+
+#+begin_src emacs-lisp
+(map! :i "C-n" #'next-line)
 #+end_src

@@ -19,3 +19,7 @@
 (evil-define-key 'normal 'global (kbd "<tab>")  'evil-jump-item)
 
 (map! :n "SPC o y" #'youdao-dictionary-search-at-point+)
+
+(map! :i "C-p" #'previous-line)
+
+(map! :i "C-n" #'next-line)

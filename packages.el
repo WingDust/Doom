@@ -62,6 +62,7 @@
 (package! centered-window-mode)
 (package! switch-buffer-functions)
 (package! elfeed)
+;;(package! nswbuff)
 
 
 (package! auto-save :recipe (:host github :repo "manateelazycat/auto-save"))
