@@ -185,3 +185,6 @@
        :config
        ;;literate
        (default +bindings +smartparens))
+
+;;; [[https://github.com/hlissner/doom-emacs/issues/401][evil-next-line or evil-next-visual-line]]
+(setq evil-respect-visual-line-mode t)
