@@ -66,9 +66,15 @@
 * Tag 右对齐
 
 #+begin_src emacs-lisp
-(setq org-tags-column -77)
+(after! org
+  (setq org-tags-column -80)
+   ;; ... other org configuration here
+)
+;; SPA-u C-c C-c
 #+end_src
 - [[https://emacs-china.org/t/org-mode-tag/8238][org mode TAG 不能右边对齐了]]
+- [[https://emacs.stackexchange.com/questions/56287/org-mode-tag-column-setting-is-ignored][Org mode tag column setting is ignored]]
+
 
 * 折叠字符
 
@@ -77,6 +83,7 @@
 #+end_src
 
 * 隐藏 heading * 符号
+
 #+begin_quote
 对于这些不在 Elpa 上需要 require 
 #+end_quote
@@ -91,3 +98,25 @@
 (add-hook 'org-mode-hook #'valign-mode)
 (add-hook 'markdown-mode-hook #'valign-mode)
 #+end_src
+
+* 让 Org-refile 能支持移动到文件的 topmost level
+
+#+begin_src emacs-lisp
+
+;; (setq org-refile-targets '((nil :maxlevel . 9)
+;;                            (org-agenda-files :maxlevel . 3)
+;;                            (org-buffer-list :maxlevel . 2)))
+
+(setq
+    org-outline-path-complete-in-steps nil
+    org-refile-allow-creating-parent-nodes 'confirm
+    org-refile-use-outline-path 'file
+    org-refile-targets '((nil :maxlevel . 5)
+                           (org-agenda-files :maxlevel . 4))
+    )
+
+#+end_src
+- [[https://emacs.stackexchange.com/questions/55014/how-do-i-move-a-subtree-to-another-file][(setq org-refile-use-outline-path 'file)]]
+- [[https://emacs.stackexchange.com/questions/36505/org-mode-refile-multiple-locations-with-same-name-as-target][Org mode refile - multiple locations with same name as target
+]]
+

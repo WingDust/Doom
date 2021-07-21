@@ -27,7 +27,11 @@
                           '(("^ *\\([-]\\) "
                              (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
 
-(setq org-tags-column -77)
+(after! org
+  (setq org-tags-column -80)
+   ;; ... other org configuration here
+)
+;; SPA-u C-c C-c
 
 (setq org-ellipsis "⤵")
 
@@ -36,3 +40,15 @@
 
 (add-hook 'org-mode-hook #'valign-mode)
 (add-hook 'markdown-mode-hook #'valign-mode)
+
+;; (setq org-refile-targets '((nil :maxlevel . 9)
+;;                            (org-agenda-files :maxlevel . 3)
+;;                            (org-buffer-list :maxlevel . 2)))
+
+(setq
+    org-outline-path-complete-in-steps nil
+    org-refile-allow-creating-parent-nodes 'confirm
+    org-refile-use-outline-path 'file
+    org-refile-targets '((nil :maxlevel . 5)
+                           (org-agenda-files :maxlevel . 4))
+    )

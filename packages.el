@@ -63,7 +63,10 @@
 (package! switch-buffer-functions)
 (package! elfeed)
 ;;(package! nswbuff)
+(package! alda-mode)
 
+
+(package! org-appear :recipe (:host github :repo "awth13/org-appear"))
 
 (package! auto-save :recipe (:host github :repo "manateelazycat/auto-save"))
 (package! org-starless :recipe (:host github :repo "TonCherAmi/org-starless"))

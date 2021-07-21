@@ -58,3 +58,8 @@
         ))
 #+end_src
 
+* alda 
+
+#+begin_src emacs-lisp
+(setq alda-binary-location "E:/alda/alda.exe")
+#+end_src

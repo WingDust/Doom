@@ -24,3 +24,5 @@
 (setq elfeed-feeds
       '(("https://mangatalk.net/feed" mangatalk)
         ))
+
+(setq alda-binary-location "E:/alda/alda.exe")
