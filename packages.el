@@ -64,6 +64,12 @@
 (package! elfeed)
 ;;(package! nswbuff)
 (package! alda-mode)
+(package! ivy-posframe)
+(package! mini-modeline)
+(package! prescient)
+(package! ivy-prescient)
+
+;; (package! centaur-tabs)
 
 
 (package! org-appear :recipe (:host github :repo "awth13/org-appear"))
