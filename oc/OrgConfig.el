@@ -52,3 +52,5 @@
     org-refile-targets '((nil :maxlevel . 5)
                            (org-agenda-files :maxlevel . 4))
     )
+
+(add-hook 'org-mode-hook 'org-appear-mode)

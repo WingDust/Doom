@@ -1,3 +1,35 @@
+
+*  lexical
+#+begin_src emacs-lisp
+;;; -*- lexical-binding: t; -*-
+#+end_src
+
+
+* 启动速度
+
+#+begin_src emacs-lisp
+;; The default is 800 kilobytes.  Measured in bytes.
+(setq gc-cons-threshold (* 50 1000 1000))
+
+;; Profile emacs startup
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (message "*** Emacs loaded in %s with %d garbage collections."
+                     (format "%.2f seconds"
+                             (float-time
+                              (time-subtract after-init-time before-init-time)))
+                     gcs-done)))
+#+end_src
+
+
+* Improve I/O
+
+#+begin_src emacs-lisp
+(when (boundp 'read-process-output-max)
+  ;; 1MB in bytes, default 4096 bytes
+  (setq read-process-output-max 1048576))
+#+end_src
+
 * 设置字体
 
 #+begin_src emacs-lisp
@@ -46,3 +78,5 @@
 #+begin_src emacs-lisp
 ;;(setq delete-by-moving-to-trash t)
 #+end_src
+
+
