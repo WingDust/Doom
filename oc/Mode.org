@@ -1,9 +1,15 @@
 #+TITLE: Mode
 
+*  lexical
+#+begin_src emacs-lisp
+;;; -*- lexical-binding: t; -*-
+#+end_src
+
 * auto save
 
 #+begin_src emacs-lisp
 (require 'auto-save)
+;;(load! auto-save)
 (auto-save-enable)
 #+end_src
 
@@ -47,7 +53,7 @@
 * 网易云音乐
 
 #+begin_src emacs-lisp
-(require 'netease-cloud-music)
+;;(require 'netease-cloud-music)
 #+end_src
 
 * elfeed
@@ -94,3 +100,12 @@
                                   (right-fringe . 8)))
   (ivy-posframe-mode 1))
 #+end_src
+
+* 取消显示行号
+
+#+begin_src emacs-lisp
+;;(setq display-line-numbers-type nil)
+(remove-hook! '(prog-mode-hook text-mode-hook conf-mode-hook)
+              #'display-line-numbers-mode)
+#+end_src
+- [[https://github.com/hlissner/doom-emacs/blob/develop/docs/faq.org][How do I change the style of line-numbers (or disable them altogether)?]]

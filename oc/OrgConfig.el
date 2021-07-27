@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 (setq org-hide-emphasis-markers t)
 
     (setq org-superstar-leading-bullet "  ")
@@ -53,4 +55,4 @@
                            (org-agenda-files :maxlevel . 4))
     )
 
-(add-hook 'org-mode-hook 'org-appear-mode)
+;;(add-hook 'org-mode-hook 'org-appear-mode)

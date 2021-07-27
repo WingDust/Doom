@@ -1,4 +1,10 @@
 #+TITLE: Keybinding
+
+*  lexical
+#+begin_src emacs-lisp
+;;; -*- lexical-binding: t; -*-
+#+end_src
+
 * C-h
 #+begin_src emacs-lisp
 ;;(define-key isearch-mode-map (kbd "C-h") 'isearch-delete-char)

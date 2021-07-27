@@ -1,4 +1,10 @@
 #+TITLE: Org Config
+
+*  lexical
+#+begin_src emacs-lisp
+;;; -*- lexical-binding: t; -*-
+#+end_src
+
 *  直接显示 加粗 、 删除线 、 强调
 
 #+begin_src emacs-lisp
@@ -122,6 +128,6 @@
 * 将 Org mode 中的标记语言渲染的样子临时还原为文本的，以便于修改
 
 #+begin_src emacs-lisp
-(add-hook 'org-mode-hook 'org-appear-mode)
+;;(add-hook 'org-mode-hook 'org-appear-mode)
 #+end_src
 

@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 ;;(define-key isearch-mode-map (kbd "C-h") 'isearch-delete-char)
 ;;(map! :ie "C-h" #'backward-delete-char-untabify)
 (map! :ie "C-h" #'backward-delete-char)

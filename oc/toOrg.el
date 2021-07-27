@@ -1,16 +1,38 @@
 ;;; -*- lexical-binding: t; -*-
 
-;; The default is 800 kilobytes.  Measured in bytes.
-(setq gc-cons-threshold (* 50 1000 1000))
+(defvar last-file-name-handler-alist file-name-handler-alist)
+(setq gc-cons-threshold 402653184
+      gc-cons-percentage 0.6
+      file-name-handler-alist nil)
 
-;; Profile emacs startup
-(add-hook 'emacs-startup-hook
-          (lambda ()
-            (message "*** Emacs loaded in %s with %d garbage collections."
-                     (format "%.2f seconds"
-                             (float-time
-                              (time-subtract after-init-time before-init-time)))
-                     gcs-done)))
+;; ... your whole emacs config here ...
+
+;; after startup, it is important you reset this to some reasonable default. A large 
+;; gc-cons-threshold will cause freezing and stuttering during long-term 
+;; interactive use. I find these are nice defaults:
+(add-hook! 'emacs-startup-hook
+  (setq gc-cons-threshold 16777216
+        gc-cons-percentage 0.1
+        file-name-handler-alist last-file-name-handler-alist))
+
+
+(defun compile-Org-to-elisp (file)
+  (let ((tan (concat
+             (file-name-sans-extension file) ".el")
+            ))
+    (org-babel-tangle-file file tan "emacs-lisp\\|elisp")
+    (byte-compile-file tan)
+    )
+)
+                
+
+(add-hook 'kill-emacs-hook (lambda ()
+                             (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/toOrg.org")
+                             (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/keybinding.org")
+                             (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/OrgConfig.org")
+                             (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/Mode.org")
+                             (byte-recompile-directory "e:/spacemacs/emacs26-3/.doom.d/oc/")
+                             ))
 
 (when (boundp 'read-process-output-max)
   ;; 1MB in bytes, default 4096 bytes

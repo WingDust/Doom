@@ -1,4 +1,7 @@
+;;; -*- lexical-binding: t; -*-
+
 (require 'auto-save)
+;;(load! auto-save)
 (auto-save-enable)
 
 (centered-window-mode t)
@@ -19,7 +22,7 @@
 ;;   )
 ;; )
 
-(require 'netease-cloud-music)
+;;(require 'netease-cloud-music)
 
 (setq elfeed-feeds
       '(("https://mangatalk.net/feed" mangatalk)
@@ -50,3 +53,7 @@
                                   (left-fringe . 8)
                                   (right-fringe . 8)))
   (ivy-posframe-mode 1))
+
+;;(setq display-line-numbers-type nil)
+(remove-hook! '(prog-mode-hook text-mode-hook conf-mode-hook)
+              #'display-line-numbers-mode)
