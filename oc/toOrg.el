@@ -1,5 +1,21 @@
 ;;; -*- lexical-binding: t; -*-
 
+(defun doom-ischange ()
+  (interactive)
+    (let
+        (
+        (default-directory "e:/spacemacs/emacs26-3/.doom.d/")
+        (explicit-shell-file-name "E:/PowerShell/7/pwsh.exe"))
+        ;;(message (shell-command-to-string "git status -s"))
+        (shell-command-to-string "git status -s")
+    )
+  )
+
+
+(setq start-org-doom-changelog (doom-ischange))
+
+;; git -C e:/spacemacs/emacs26-3/.doom.d/ status -s 非在 git 目录下也可查看状态
+
 (defvar last-file-name-handler-alist file-name-handler-alist)
 (setq gc-cons-threshold 402653184
       gc-cons-percentage 0.6
@@ -27,11 +43,26 @@
                 
 
 (add-hook 'kill-emacs-hook (lambda ()
-                             (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/toOrg.org")
-                             (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/keybinding.org")
-                             (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/OrgConfig.org")
-                             (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/Mode.org")
-                             (byte-recompile-directory "e:/spacemacs/emacs26-3/.doom.d/oc/")
+                            (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/toOrg.org")
+                            (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/keybinding.org")
+                            (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/OrgConfig.org")
+                            (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/Mode.org")
+                            (byte-recompile-directory "e:/spacemacs/emacs26-3/.doom.d/oc/")
+                             ;; (let ((last-org-doom-changelog (doom-ischange)))
+                             ;;     ;;(f-write-text  last-org-doom-changelog 'utf-8
+                             ;;     ;;            "E:\\spacemacs\\emacs26-3\\.doom.d\\t.txt")
+                             ;;     ;;(f-write-text  start-org-doom-changelog 'utf-8
+                             ;;     ;;            "E:\\spacemacs\\emacs26-3\\.doom.d\\s.txt")
+                             ;;    (if (not (string= last-org-doom-changelog start-org-doom-changelog))
+                             ;;        (progn
+                             ;;        (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/toOrg.org")
+                             ;;        (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/keybinding.org")
+                             ;;        (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/OrgConfig.org")
+                             ;;        (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/Mode.org")
+                             ;;        (byte-recompile-directory "e:/spacemacs/emacs26-3/.doom.d/oc/")
+                             ;;        )
+                             ;;     )
+                             ;;   )
                              ))
 
 (when (boundp 'read-process-output-max)
