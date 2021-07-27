@@ -186,5 +186,12 @@
        ;;literate
        (default +bindings +smartparens))
 
+
+
+(setq package-enable-at-startup nil ; don't auto-initialize!
+      ;; this tells package.el not to add those pesky customized variable settings
+      ;; at the end of your init.el
+      package--init-file-ensured t)
+
 ;;; [[https://github.com/hlissner/doom-emacs/issues/401][evil-next-line or evil-next-visual-line]]
 (setq evil-respect-visual-line-mode t)
