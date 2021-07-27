@@ -58,8 +58,17 @@
 ;; they are implemented.
 
 
-(require 'org)
-(org-babel-load-file "e:/spacemacs/emacs26-3/.doom.d/oc/keybinding.org")
-(org-babel-load-file "e:/spacemacs/emacs26-3/.doom.d/oc/toOrg.org")
-(org-babel-load-file "e:/spacemacs/emacs26-3/.doom.d/oc/OrgConfig.org")
-(org-babel-load-file "e:/spacemacs/emacs26-3/.doom.d/oc/Mode.org")
+;;(require 'org)
+
+;; (org-babel-load-file "e:/spacemacs/emacs26-3/.doom.d/oc/toOrg.org")
+;; (org-babel-load-file "e:/spacemacs/emacs26-3/.doom.d/oc/keybinding.org")
+;; (org-babel-load-file "e:/spacemacs/emacs26-3/.doom.d/oc/OrgConfig.org")
+;; (org-babel-load-file "e:/spacemacs/emacs26-3/.doom.d/oc/Mode.org")
+
+;; [[https://www.emacswiki.org/emacs/LoadingLispFiles][Loading from EmacsLisp]]
+;; [[https://emacs.stackexchange.com/questions/3310/difference-between-load-file-and-load][Difference between load-file and load]]
+
+(load  "e:/spacemacs/emacs26-3/.doom.d/oc/toOrg")
+(load  "e:/spacemacs/emacs26-3/.doom.d/oc/keybinding")
+(load  "e:/spacemacs/emacs26-3/.doom.d/oc/OrgConfig")
+(load  "e:/spacemacs/emacs26-3/.doom.d/oc/Mode")
