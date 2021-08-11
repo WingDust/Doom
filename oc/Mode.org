@@ -109,3 +109,4 @@
               #'display-line-numbers-mode)
 #+end_src
 - [[https://github.com/hlissner/doom-emacs/blob/develop/docs/faq.org][How do I change the style of line-numbers (or disable them altogether)?]]
+  

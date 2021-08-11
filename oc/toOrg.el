@@ -70,7 +70,9 @@
   (setq read-process-output-max 1048576))
 
 (setq doom-font
-      (font-spec :family "Source Code Variable"
+      ;;(font-spec :family "Source Code Variable"
+      ;;(font-spec :family "Sarasa Mono TC Light"
+      (font-spec :family "Cascadia Mono"
                  :size 18
        )
       )
