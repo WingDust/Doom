@@ -38,7 +38,8 @@
 
 #+begin_src emacs-lisp
 (add-hook 'switch-buffer-functions
-          (lambda (prev curr)
+          ;;(lambda (prev curr)
+          (lambda (curr)
             (cl-assert (eq curr (current-buffer)))  ;; Always t
             (delete-trailing-whitespace)))
 ;; (save-excursion
@@ -109,4 +110,35 @@
               #'display-line-numbers-mode)
 #+end_src
 - [[https://github.com/hlissner/doom-emacs/blob/develop/docs/faq.org][How do I change the style of line-numbers (or disable them altogether)?]]
+
+*  lsp
+
+#+begin_src emacs-lisp
+;; doom require =pip install pytest nose black=
+;; 需要 npm i -g pyright
+
+(require 'nox)
+
+(setq nox-python-server "pyright")
+(if (eq system-type 'windows-nt)
+    (setq nox-python-path "E:/python/python3.8.1/python.exe"))
+(setq nox-autoshutdown t) ;; kill bufer 时自动关闭nox的服务。
+(dolist (hook (list
+               ;;'js-mode-hook
+               ;;'rust-mode-hook
+               'python-mode-hook
+               ;;'ruby-mode-hook
+               ;;'java-mode-hook
+               ;;'sh-mode-hook
+               ;;'php-mode-hook
+               ;;'c-mode-common-hook
+               ;;'c-mode-hook
+               ;;'csharp-mode-hook
+               ;;'c++-mode-hook
+               ;;'haskell-mode-hook
+               ))
+  (add-hook hook '(lambda () (nox-ensure))))
+#+end_src
   
+- [[https://rgoswami.me/posts/emacs-lang-servers/][Doom Emacs and Language Servers]]
+- [[https://tecosaur.github.io/emacs-config/config.html][Doom Emacs Configuration]]

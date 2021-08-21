@@ -13,7 +13,8 @@
 ;;(package! ws-butler :disable t)
 
 (add-hook 'switch-buffer-functions
-          (lambda (prev curr)
+          ;;(lambda (prev curr)
+          (lambda (curr)
             (cl-assert (eq curr (current-buffer)))  ;; Always t
             (delete-trailing-whitespace)))
 ;; (save-excursion
@@ -57,3 +58,26 @@
 ;;(setq display-line-numbers-type nil)
 (remove-hook! '(prog-mode-hook text-mode-hook conf-mode-hook)
               #'display-line-numbers-mode)
+
+;; doom require =pip install pytest nose black=
+;; 需要 npm i -g pyright
+(require 'nox)
+
+(setq nox-python-server "pyright")
+(setq nox-python-path "E:/python/python3.8.1/python.exe")
+(setq nox-autoshutdown t) ;; kill bufer 时自动关闭nox的服务。
+(dolist (hook (list
+               ;;'js-mode-hook
+               ;;'rust-mode-hook
+               'python-mode-hook
+               ;;'ruby-mode-hook
+               ;;'java-mode-hook
+               ;;'sh-mode-hook
+               ;;'php-mode-hook
+               ;;'c-mode-common-hook
+               ;;'c-mode-hook
+               ;;'csharp-mode-hook
+               ;;'c++-mode-hook
+               ;;'haskell-mode-hook
+               ))
+  (add-hook hook '(lambda () (nox-ensure))))
