@@ -61,10 +61,12 @@
 
 ;; doom require =pip install pytest nose black=
 ;; 需要 npm i -g pyright
+
 (require 'nox)
 
 (setq nox-python-server "pyright")
-(setq nox-python-path "E:/python/python3.8.1/python.exe")
+(if (eq system-type 'windows-nt)
+    (setq nox-python-path "E:/python/python3.8.1/python.exe"))
 (setq nox-autoshutdown t) ;; kill bufer 时自动关闭nox的服务。
 (dolist (hook (list
                ;;'js-mode-hook
@@ -81,3 +83,12 @@
                ;;'haskell-mode-hook
                ))
   (add-hook hook '(lambda () (nox-ensure))))
+
+;; rustup update
+;; rustup component add rust-analysis rust-src
+;; scoop install rust-analysis 
+(setq rustic-lsp-server 'rust-analyzer)
+(remove-hook 'rustic-mode-hook 'flycheck-mode)
+(after! rustic
+  (setq rustic-lsp-server 'rust-analyzer ; optional
+        rustic-lsp-client 'eglot))

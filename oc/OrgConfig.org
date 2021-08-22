@@ -131,3 +131,27 @@
 ;;(add-hook 'org-mode-hook 'org-appear-mode)
 #+end_src
 
+
+* Format Org file
+
+#+begin_src emacs-lisp
+(defun nm/add-newline-between-headlines ()
+  ""
+  (when (equal major-mode 'org-mode)
+    (unless (org-at-heading-p)
+      (org-back-to-heading))
+    (nm/org-end-of-headline)
+    (if (not (org--line-empty-p 1))
+        (newline))))
+(defun nm/org-end-of-headline()
+  "Move to end of current headline"
+  (interactive)
+  (outline-next-heading)
+  (forward-char -1))
+(defun nm/newlines-between-headlines ()
+  "Uses the org-map-entries function to scan through a buffer's
+   contents and ensure newlines are inserted between headlines"
+  (interactive)
+  (org-map-entries #'nm/add-newline-between-headlines t 'file))
+#+end_src
+- [[https://github.com/nmartin84/.doom.d][Orgmode Formating]]

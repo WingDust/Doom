@@ -73,11 +73,14 @@
 
 
 (package! org-appear :recipe (:host github :repo "awth13/org-appear"))
+(package! org-starless :recipe (:host github :repo "TonCherAmi/org-starless"))
 
 (package! auto-save :recipe (:host github :repo "manateelazycat/auto-save"))
 (package! nox :recipe (:host github :repo "manateelazycat/nox"))
 
-(package! org-starless :recipe (:host github :repo "TonCherAmi/org-starless"))
+;; rust development config
+;; (package! rustic :recipe (:host github :repo "brotzeit/rustic"))
+(package! eglot :recipe (:host github :repo "joaotavora/eglot"))
 
 (package! request)
 (package! netease-cloud-music :recipe (:host github :repo "SpringHan/netease-cloud-music.el"))

@@ -142,3 +142,15 @@
   
 - [[https://rgoswami.me/posts/emacs-lang-servers/][Doom Emacs and Language Servers]]
 - [[https://tecosaur.github.io/emacs-config/config.html][Doom Emacs Configuration]]
+  
+* Rust
+#+begin_src emacs-lisp
+;; rustup update
+;; rustup component add rust-analysis rust-src
+;; scoop install rust-analysis 
+(setq rustic-lsp-server 'rust-analyzer)
+(remove-hook 'rustic-mode-hook 'flycheck-mode)
+(after! rustic
+  (setq rustic-lsp-server 'rust-analyzer ; optional
+        rustic-lsp-client 'eglot))
+#+end_src
