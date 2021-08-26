@@ -2,9 +2,9 @@
 
 (setq org-hide-emphasis-markers t)
 
-    (setq org-superstar-leading-bullet "  ")
+(setq org-superstar-leading-bullet "  ")
 
-    (setq org-cycle-separator-lines -1)
+(setq org-cycle-separator-lines -1)
 
 ;;;'org-babel-execute:python
 (setq python-shell-interpreter "e:\\python\\python3.8.1\\python.exe"
@@ -37,8 +37,16 @@
 
 (setq org-ellipsis "⤵")
 
-(require 'org-starless)
-(add-hook 'org-mode-hook #'org-starless-mode)
+(after! org-superstar
+    (setq org-superstar-headline-bullets-list '("⬡" "❀" "○" "◆" "◉")
+        org-superstar-prettify-item-bullets t )
+        (setq org-superstar-item-bullet-alist '((?* . ?•)
+                                                (?+ . ?•)
+                                                (?- . ?•)))
+    )
+
+;;(require 'org-starless)
+;;(add-hook 'org-mode-hook #'org-starless-mode)
 
 (add-hook 'org-mode-hook #'valign-mode)
 (add-hook 'markdown-mode-hook #'valign-mode)
@@ -56,3 +64,38 @@
     )
 
 ;;(add-hook 'org-mode-hook 'org-appear-mode)
+
+(defun nm/add-newline-between-headlines ()
+  ""
+  (when (equal major-mode 'org-mode)
+    (unless (org-at-heading-p)
+      (org-back-to-heading))
+    (nm/org-end-of-headline)
+    (if (not (org--line-empty-p 1))
+        (newline))))
+(defun nm/org-end-of-headline()
+  "Move to end of current headline"
+  (interactive)
+  (outline-next-heading)
+  (forward-char -1))
+(defun nm/newlines-between-headlines ()
+  "Uses the org-map-entries function to scan through a buffer's
+   contents and ensure newlines are inserted between headlines"
+  (interactive)
+  (org-map-entries #'nm/add-newline-between-headlines t 'file))
+
+;; (add-hook 'org-mode-hook
+;;     (setq line-spacing 0.1)
+;;     (setq header-line-format " ")
+;;     (lambda () (progn
+;;         (setq left-margin-width 2)
+;;         (setq right-margin-width 2)
+;;         (set-window-buffer nil (current-buffer))))
+;;           )
+
+;; (setq header-line-format " ")
+
+;; (lambda () (progn
+;;   (setq left-margin-width 2)
+;;   (setq right-margin-width 2)
+;;   (set-window-buffer nil (current-buffer))))

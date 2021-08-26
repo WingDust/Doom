@@ -94,3 +94,5 @@
 ;;  )
 
 ;;(setq delete-by-moving-to-trash t)
+
+;;(setq delete-by-moving-to-trash t)

@@ -104,8 +104,7 @@
 #+begin_src emacs-lisp
 (add-hook 'window-setup-hook #'toggle-frame-fullscreen)
 #+end_src
-- R:
-  - [[https://emacs-china.org/t/doom-emacs/10434][doom emacs 如何设置启动后窗口的大小?]]
+- [[https://emacs-china.org/t/doom-emacs/10434][doom emacs 如何设置启动后窗口的大小?]]
 
 * 窗口透明
 
@@ -139,4 +138,9 @@
 ;;(setq delete-by-moving-to-trash t)
 #+end_src
 
+* 闲置时 idle time 执行 recent-cleanup
 
+#+begin_src emacs-lisp
+;;(setq delete-by-moving-to-trash t)
+#+end_src
+- [[https://emacs.stackexchange.com/questions/22692/effect-of-multiple-idle-timers][Effect of multiple idle timers]]

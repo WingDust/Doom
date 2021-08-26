@@ -10,22 +10,21 @@
 #+begin_src emacs-lisp
 (setq org-hide-emphasis-markers t)
 #+end_src
-- R
 
 * 去掉标题的小白点
 
-    #+begin_src emacs-lisp
-    (setq org-superstar-leading-bullet "  ")
-    #+end_src
+#+begin_src emacs-lisp
+(setq org-superstar-leading-bullet "  ")
+#+end_src
 
 * 将空行作为 Org Mode 内容一部分，以解决展开标题不会展开空行
 
-    #+begin_src emacs-lisp
-    (setq org-cycle-separator-lines -1)
-    #+end_src
-    - [[https://stackoverflow.com/questions/40332479/org-mode-folding-considers-whitespace-as-content][org-mode folding considers whitespace as content]]
-    - [[https://emacs.stackexchange.com/questions/21789/org-mode-blank-line-at-the-end-of-tree][Org-mode blank line at the end of tree]]
-    - [[https://www.reddit.com/r/emacs/comments/749t8a/keep_a_blank_line_after_a_code_block_in_orgmode/][Keep a blank line after a code block in org-mode]]
+#+begin_src emacs-lisp
+(setq org-cycle-separator-lines -1)
+#+end_src
+- [[https://stackoverflow.com/questions/40332479/org-mode-folding-considers-whitespace-as-content][org-mode folding considers whitespace as content]]
+- [[https://emacs.stackexchange.com/questions/21789/org-mode-blank-line-at-the-end-of-tree][Org-mode blank line at the end of tree]]
+- [[https://www.reddit.com/r/emacs/comments/749t8a/keep_a_blank_line_after_a_code_block_in_orgmode/][Keep a blank line after a code block in org-mode]]
 
 * Org mode literate Programming
 ** python
@@ -88,14 +87,26 @@
 (setq org-ellipsis "⤵")
 #+end_src
 
+* bullet
+
+#+begin_src emacs-lisp
+(after! org-superstar
+    (setq org-superstar-headline-bullets-list '("⬡" "❀" "○" "◆" "◉")
+        org-superstar-prettify-item-bullets t )
+        (setq org-superstar-item-bullet-alist '((?* . ?•)
+                                                (?+ . ?•)
+                                                (?- . ?•)))
+    )
+#+end_src
+
 * 隐藏 heading * 符号
 
 #+begin_quote
 对于这些不在 Elpa 上需要 require 
 #+end_quote
 #+begin_src emacs-lisp
-(require 'org-starless)
-(add-hook 'org-mode-hook #'org-starless-mode)
+;;(require 'org-starless)
+;;(add-hook 'org-mode-hook #'org-starless-mode)
 #+end_src
 
 * 对齐 Org mode 的表格
@@ -155,3 +166,29 @@
   (org-map-entries #'nm/add-newline-between-headlines t 'file))
 #+end_src
 - [[https://github.com/nmartin84/.doom.d][Orgmode Formating]]
+  
+* line spacing
+#+begin_src emacs-lisp
+;; (add-hook 'org-mode-hook
+;;     (setq line-spacing 0.1)
+;;     (setq header-line-format " ")
+;;     (lambda () (progn
+;;         (setq left-margin-width 2)
+;;         (setq right-margin-width 2)
+;;         (set-window-buffer nil (current-buffer))))
+;;           )
+#+end_src
+
+* Top padding
+#+begin_src emacs-lisp
+;; (setq header-line-format " ")
+#+end_src
+
+* Side padding
+#+begin_src emacs-lisp
+;; (lambda () (progn
+;;   (setq left-margin-width 2)
+;;   (setq right-margin-width 2)
+;;   (set-window-buffer nil (current-buffer))))
+#+end_src
+
