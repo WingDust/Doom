@@ -167,6 +167,24 @@
 #+end_src
 - [[https://github.com/nmartin84/.doom.d][Orgmode Formating]]
   
+* fold other expecrt current headline
+#+begin_src emacs-lisp
+(defun org-show-current-heading-tidily ()
+  (interactive)  ;Inteactive
+  "Show next entry, keeping other entries closed."
+  (if (save-excursion (end-of-line) (outline-invisible-p))
+      (progn (org-show-entry) (show-children))
+    (outline-back-to-heading)
+    (unless (and (bolp) (org-on-heading-p))
+      (org-up-heading-safe)
+      (hide-subtree)
+      (error "Boundary reached"))
+    (org-overview)
+    (org-reveal t)
+    (org-show-entry)
+    (show-children)))
+#+end_src
+- [[https://stackoverflow.com/questions/25161792/emacs-org-mode-how-can-i-fold-everything-but-the-current-headline][Emacs org-mode: How can i fold everything but the current headline]]
 * line spacing
 #+begin_src emacs-lisp
 ;; (add-hook 'org-mode-hook
@@ -178,7 +196,6 @@
 ;;         (set-window-buffer nil (current-buffer))))
 ;;           )
 #+end_src
-
 * Top padding
 #+begin_src emacs-lisp
 ;; (setq header-line-format " ")
