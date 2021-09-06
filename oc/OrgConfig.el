@@ -84,6 +84,21 @@
   (interactive)
   (org-map-entries #'nm/add-newline-between-headlines t 'file))
 
+(defun org-show-current-heading-tidily ()
+  (interactive)  ;Inteactive
+  "Show next entry, keeping other entries closed."
+  (if (save-excursion (end-of-line) (outline-invisible-p))
+      (progn (org-show-entry) (show-children))
+    (outline-back-to-heading)
+    (unless (and (bolp) (org-on-heading-p))
+      (org-up-heading-safe)
+      (hide-subtree)
+      (error "Boundary reached"))
+    (org-overview)
+    (org-reveal t)
+    (org-show-entry)
+    (show-children)))
+
 ;; (add-hook 'org-mode-hook
 ;;     (setq line-spacing 0.1)
 ;;     (setq header-line-format " ")
