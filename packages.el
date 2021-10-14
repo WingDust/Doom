@@ -68,6 +68,8 @@
 (package! mini-modeline)
 (package! prescient)
 (package! ivy-prescient)
+(package! typescript-mode)
+(package! org-kanban)
 
 ;; (package! centaur-tabs)
 
@@ -84,6 +86,9 @@
 
 (package! request)
 (package! netease-cloud-music :recipe (:host github :repo "SpringHan/netease-cloud-music.el"))
+
+(package! zone-matrix :recipe (:host github :repo "ober/zone-matrix"))
+
 
 ;;(package! ob-powershell :recipe (:local-repo "~/.doom.d/local/ob-powershell.el"))
 ;;(add-load-path! "~/.doom.d/local/ob-powershell.el")
