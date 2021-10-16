@@ -68,7 +68,7 @@
 ;; [[https://www.emacswiki.org/emacs/LoadingLispFiles][Loading from EmacsLisp]]
 ;; [[https://emacs.stackexchange.com/questions/3310/difference-between-load-file-and-load][Difference between load-file and load]]
 
-(load  "e:/spacemacs/emacs26-3/.doom.d/oc/+Org")
-(load  "e:/spacemacs/emacs26-3/.doom.d/oc/+KeyBinding")
-(load  "e:/spacemacs/emacs26-3/.doom.d/oc/+Config")
-(load  "e:/spacemacs/emacs26-3/.doom.d/oc/+Mode")
+(load  "~/.doom.d/oc/+Org")
+(load  "~/.doom.d/oc/+KeyBinding")
+(load  "~/.doom.d/oc/+Config")
+(load  "~/.doom.d/oc/+Mode")

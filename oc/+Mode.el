@@ -29,7 +29,7 @@
       '(("https://mangatalk.net/feed" mangatalk)
         ))
 
-(setq alda-binary-location "E:/alda/alda.exe")
+;; (setq alda-binary-location "E:/alda/alda.exe")
 
 (use-package prescient
   :after counsel
@@ -62,41 +62,41 @@
 ;; doom require =pip install pytest nose black=
 ;; 需要 npm i -g pyright
 
-(require 'nox)
+;; (require 'nox)
 
-(setq nox-python-server "pyright")
-(if (eq system-type 'windows-nt)
-    (setq nox-python-path "E:/python/python3.8.1/python.exe"))
-(setq nox-autoshutdown t) ;; kill bufer 时自动关闭nox的服务。
-(dolist (hook (list
-               ;;'js-mode-hook
-               ;;'rust-mode-hook
-               'python-mode-hook
-               ;;'ruby-mode-hook
-               ;;'java-mode-hook
-               ;;'sh-mode-hook
-               ;;'php-mode-hook
-               ;;'c-mode-common-hook
-               ;;'c-mode-hook
-               ;;'csharp-mode-hook
-               ;;'c++-mode-hook
-               ;;'haskell-mode-hook
-               ))
-  (add-hook hook '(lambda () (nox-ensure))))
+;; (setq nox-python-server "pyright")
+;; (if (eq system-type 'windows-nt)
+;;     (setq nox-python-path "E:/python/python3.8.1/python.exe"))
+;; (setq nox-autoshutdown t) ;; kill bufer 时自动关闭nox的服务。
+;; (dolist (hook (list
+;;                ;;'js-mode-hook
+;;                ;;'rust-mode-hook
+;;                'python-mode-hook
+;;                ;;'ruby-mode-hook
+;;                ;;'java-mode-hook
+;;                ;;'sh-mode-hook
+;;                ;;'php-mode-hook
+;;                ;;'c-mode-common-hook
+;;                ;;'c-mode-hook
+;;                ;;'csharp-mode-hook
+;;                ;;'c++-mode-hook
+;;                ;;'haskell-mode-hook
+;;                ))
+;;   (add-hook hook '(lambda () (nox-ensure))))
 
 ;; rustup update
 ;; rustup component add rust-analysis rust-src
 ;; scoop install rust-analysis 
-(setq rustic-lsp-server 'rust-analyzer)
-(remove-hook 'rustic-mode-hook 'flycheck-mode)
-(after! rustic
-  (setq rustic-lsp-server 'rust-analyzer ; optional
-        rustic-lsp-client 'eglot))
+;; (setq rustic-lsp-server 'rust-analyzer)
+;; (remove-hook 'rustic-mode-hook 'flycheck-mode)
+;; (after! rustic
+;;   (setq rustic-lsp-server 'rust-analyzer ; optional
+;;         rustic-lsp-client 'eglot))
 
-(require 'zone-matrix)
+;; (require 'zone-matrix)
 ;;(require 'zone-matrix-settings)
 ;;(require 'zone-settings)
-(setq zone-programs [zone-matrix])
+;; (setq zone-programs [zone-matrix])
 
 ;;延时自动
 ;;(setq zone-timer (run-with-idle-timer 180 t 'zone))

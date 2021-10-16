@@ -7,8 +7,8 @@
 (setq org-cycle-separator-lines -1)
 
 ;;;'org-babel-execute:python
-(setq python-shell-interpreter "e:\\python\\python3.8.1\\python.exe"
-        org-babel-python-command "e:\\python\\python3.8.1\\python.exe"
+(setq python-shell-interpreter "/usr/bin/python"
+        org-babel-python-command "/usr/bin/python"
         )
 
 (require 'ob-js)
@@ -21,6 +21,7 @@
         (js . t)
         (rust . t)
         (deno . t)
+        (cc   . t)
         ;;(powershell . t)
     ))
 )

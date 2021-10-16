@@ -54,7 +54,7 @@
 (package! ws-butler :disable t)
 
 (package! ob-deno)
-(package! ob-rust)
+;;(package! ob-rust)
 (package! ox-hugo)
 (package! evil-matchit)
 (package! youdao-dictionary)
@@ -64,7 +64,7 @@
 (package! elfeed)
 ;;(package! nswbuff)
 (package! alda-mode)
-(package! ivy-posframe)
+;;(package! ivy-posframe)
 (package! mini-modeline)
 (package! prescient)
 (package! ivy-prescient)
@@ -74,11 +74,11 @@
 ;; (package! centaur-tabs)
 
 
-(package! org-appear :recipe (:host github :repo "awth13/org-appear"))
+;;(package! org-appear :recipe (:host github :repo "awth13/org-appear"))
 ;;(package! org-starless :recipe (:host github :repo "TonCherAmi/org-starless"))
 
 (package! auto-save :recipe (:host github :repo "manateelazycat/auto-save"))
-(package! nox :recipe (:host github :repo "manateelazycat/nox"))
+;;(package! nox :recipe (:host github :repo "manateelazycat/nox"))
 
 ;; rust development config
 ;; (package! rustic :recipe (:host github :repo "brotzeit/rustic"))
@@ -87,7 +87,7 @@
 (package! request)
 (package! netease-cloud-music :recipe (:host github :repo "SpringHan/netease-cloud-music.el"))
 
-(package! zone-matrix :recipe (:host github :repo "ober/zone-matrix"))
+;;(package! zone-matrix :recipe (:host github :repo "ober/zone-matrix"))
 
 
 ;;(package! ob-powershell :recipe (:local-repo "~/.doom.d/local/ob-powershell.el"))

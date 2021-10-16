@@ -1,18 +1,18 @@
 ;;; -*- lexical-binding: t; -*-
 
-(defun doom-ischange ()
-  (interactive)
-    (let
-        (
-        (default-directory "e:/spacemacs/emacs26-3/.doom.d/")
-        (explicit-shell-file-name "E:/PowerShell/7/pwsh.exe"))
-        ;;(message (shell-command-to-string "git status -s"))
-        (shell-command-to-string "git status -s")
-    )
-  )
+;; (defun doom-ischange ()
+;;   (interactive)
+;;     (let
+;;         (
+;;         (default-directory "~/.doom.d/")
+;;         (explicit-shell-file-name "E:/PowerShell/7/pwsh.exe"))
+;;         ;;(message (shell-command-to-string "git status -s"))
+;;         (shell-command-to-string "git status -s")
+;;     )
+;;   )
 
 
-(setq start-org-doom-changelog (doom-ischange))
+;; (setq start-org-doom-changelog (doom-ischange))
 
 ;; git -C e:/spacemacs/emacs26-3/.doom.d/ status -s 非在 git 目录下也可查看状态
 
@@ -39,15 +39,24 @@
     (org-babel-tangle-file file tan "emacs-lisp\\|elisp")
     (byte-compile-file tan)
     )
+  )
+(defun a()
+  (interactive)
+(compile-Org-to-elisp "~/.doom.d/oc/+Config.org")
+(compile-Org-to-elisp "~/.doom.d/oc/+KeyBinding.org")
+(compile-Org-to-elisp "~/.doom.d/oc/+Org.org")
+(compile-Org-to-elisp "~/.doom.d/oc/+Mode.org")
+(byte-recompile-directory "~/.doom.d/oc/")
 )
+
                 
 
 (add-hook 'kill-emacs-hook (lambda ()
-                            (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Config.org")
-                            (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+KeyBinding.org")
-                            (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Org.org")
-                            (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Mode.org")
-                            (byte-recompile-directory "e:/spacemacs/emacs26-3/.doom.d/oc/")
+                            (compile-Org-to-elisp "~/.doom.d/oc/+Config.org")
+                            (compile-Org-to-elisp "~/.doom.d/oc/+KeyBinding.org")
+                            (compile-Org-to-elisp "~/.doom.d/oc/+Org.org")
+                            (compile-Org-to-elisp "~/.doom.d/oc/+Mode.org")
+                            (byte-recompile-directory "~/.doom.d/oc/")
                              ;; (let ((last-org-doom-changelog (doom-ischange)))
                              ;;     ;;(f-write-text  last-org-doom-changelog 'utf-8
                              ;;     ;;            "E:\\spacemacs\\emacs26-3\\.doom.d\\t.txt")
@@ -70,10 +79,10 @@
   (setq read-process-output-max 1048576))
 
 (setq doom-font
-      ;;(font-spec :family "Source Code Variable"
+      (font-spec :family "Source Code Variable"
       ;;(font-spec :family "Sarasa Mono TC Light"
-      (font-spec :family "Cascadia Mono"
-                 :size 18
+      ;; (font-spec :family "Cascadia Mono"
+      ;;            :size 18
        )
       )
 
