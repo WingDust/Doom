@@ -70,6 +70,7 @@
 (package! ivy-prescient)
 (package! typescript-mode)
 (package! org-kanban)
+(package! kana)
 
 ;; (package! centaur-tabs)
 

@@ -102,3 +102,20 @@
 ;;(setq zone-timer (run-with-idle-timer 180 t 'zone))
 
 ;;任意字符
+
+(map!
+(:after kana :map kana-mode-map
+  :nm "v" #'kana-validate
+  :nm "s" #'kana-say-question
+  :nm "p" #'kana-previous
+  :nm "n" #'kana-next
+  :nm "t" #'kana-toggle-kana
+  :nm "r" #'kana-toggle-random
+  :nm "l" #'kana-loop-toggle
+  :nm "]" #'kana-loop-inc
+  :nm "[" #'kana-loop-dec
+  :nm "a" #'kana-first
+  :nm "j" #'kana-jump
+  :nm "q" #'kana-quit
+  :nm "d" #'kana-details)
+                )
