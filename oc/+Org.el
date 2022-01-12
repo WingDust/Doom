@@ -38,7 +38,7 @@
 (setq org-ellipsis "⤵")
 
 (after! org-superstar
-    (setq org-superstar-headline-bullets-list '("⬡" "❀" "○" "◆" "◉")
+    (setq org-superstar-headline-bullets-list '("⬡" "◉" "›" "▷" "○");;◆
         org-superstar-prettify-item-bullets t )
         (setq org-superstar-item-bullet-alist '((?* . ?•)
                                                 (?+ . ?•)
@@ -50,6 +50,8 @@
 
 (add-hook 'org-mode-hook #'valign-mode)
 (add-hook 'markdown-mode-hook #'valign-mode)
+
+(add-hook 'org-mode-hook #'org-num-mode)
 
 ;; (setq org-refile-targets '((nil :maxlevel . 9)
 ;;                            (org-agenda-files :maxlevel . 3)
@@ -63,7 +65,8 @@
                            (org-agenda-files :maxlevel . 4))
     )
 
-;;(add-hook 'org-mode-hook 'org-appear-mode)
+(add-hook 'org-mode-hook 'org-appear-mode)
+(setq org-appear-autolinks t)
 
 (defun nm/add-newline-between-headlines ()
   ""
@@ -118,3 +121,41 @@
 ;;   (setq left-margin-width 2)
 ;;   (setq right-margin-width 2)
 ;;   (set-window-buffer nil (current-buffer))))
+
+(setq x-underline-at-descent-line t)
+
+(setq org-agenda-files (list
+                        ;;"H:/Work/framework/Site/org/Trivia.org"
+                        "H:/Work/framework/Site/org/Daily.org"
+                        ))
+(after! org
+        ;; 设置状态序列
+        (setq org-todo-keywords
+        '((sequence
+                "TODO(t)"
+                "IDEA"
+                "Destory"
+                "INBOX(i)"
+                "NEXT(n)"
+                "LATER(l)"
+                "WAIT/FORWARD(w)"
+                "MAYBE/FUTURE(m)"
+                "|"
+                "CANCEL(c)"
+                "DONE(d)" )))
+
+        ;; set color for keywords
+        (setq org-todo-keyword-faces
+        '(
+                ("IDEA" . (:foreground "azure" :weight bold))
+                ("Destory" . (:foreground "LightPink"))
+                ("INBOX" . (:foreground "blue" :weight bold))
+                ("NEXT"  .  org-warning)
+                ("LATER" . "yellow")
+                ("WAIT/FORWARD" . "blue")
+                ("MAYBE/FUTURE" . "purple")
+                ("DONE" . "green")
+                ("CANCEL" ."grey")
+                )
+        )
+                )

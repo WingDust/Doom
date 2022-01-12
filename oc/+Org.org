@@ -91,7 +91,7 @@
 
 #+begin_src emacs-lisp
 (after! org-superstar
-    (setq org-superstar-headline-bullets-list '("⬡" "❀" "○" "◆" "◉")
+    (setq org-superstar-headline-bullets-list '("⬡" "◉" "›" "▷" "○");;◆
         org-superstar-prettify-item-bullets t )
         (setq org-superstar-item-bullet-alist '((?* . ?•)
                                                 (?+ . ?•)
@@ -114,6 +114,11 @@
 #+begin_src emacs-lisp
 (add-hook 'org-mode-hook #'valign-mode)
 (add-hook 'markdown-mode-hook #'valign-mode)
+#+end_src
+
+* heading 显示序号
+#+begin_src emacs-lisp
+(add-hook 'org-mode-hook #'org-num-mode)
 #+end_src
 
 * 让 Org-refile 能支持移动到文件的 topmost level
@@ -139,7 +144,8 @@
 * 将 Org mode 中的标记语言渲染的样子临时还原为文本的，以便于修改
 
 #+begin_src emacs-lisp
-;;(add-hook 'org-mode-hook 'org-appear-mode)
+(add-hook 'org-mode-hook 'org-appear-mode)
+(setq org-appear-autolinks t)
 #+end_src
 
 
@@ -189,6 +195,7 @@
     (outline-show-children)))
 #+end_src
 - [[https://stackoverflow.com/questions/25161792/emacs-org-mode-how-can-i-fold-everything-but-the-current-headline][Emacs org-mode: How can i fold everything but the current headline]]
+
 * line spacing
 #+begin_src emacs-lisp
 ;; (add-hook 'org-mode-hook
@@ -211,4 +218,49 @@
 ;;   (setq left-margin-width 2)
 ;;   (setq right-margin-width 2)
 ;;   (set-window-buffer nil (current-buffer))))
+#+end_src
+
+* Underline line at descent position, not baseline position
+#+begin_src emacs-lisp
+(setq x-underline-at-descent-line t)
+#+end_src
+
+* Org Agenda
+#+begin_src emacs-lisp
+(setq org-agenda-files (list
+                        ;;"H:/Work/framework/Site/org/Trivia.org"
+                        "H:/Work/framework/Site/org/Daily.org"
+                        ))
+(after! org
+        ;; 设置状态序列
+        (setq org-todo-keywords
+        '((sequence
+                "TODO(t)"
+                "IDEA"
+                "Destory"
+                "INBOX(i)"
+                "NEXT(n)"
+                "LATER(l)"
+                "WAIT/FORWARD(w)"
+                "MAYBE/FUTURE(m)"
+                "|"
+                "CANCEL(c)"
+                "DONE(d)" )))
+
+        ;; set color for keywords
+        (setq org-todo-keyword-faces
+        '(
+                ("IDEA" . (:foreground "azure" :weight bold))
+                ("Destory" . (:foreground "LightPink"))
+                ("INBOX" . (:foreground "blue" :weight bold))
+                ("NEXT"  .  org-warning)
+                ("LATER" . "yellow")
+                ("WAIT/FORWARD" . "blue")
+                ("MAYBE/FUTURE" . "purple")
+                ("DONE" . "green")
+                ("CANCEL" ."grey")
+                )
+        )
+                )
+
 #+end_src

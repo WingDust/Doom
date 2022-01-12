@@ -53,6 +53,17 @@
 (package! vi-tilde-fringe :disable t)
 (package! ws-butler :disable t)
 
+(disable-packages! doom-modeline)
+
+
+;;; fix https://github.com/hlissner/doom-emacs/issues/5667
+(package! gitconfig-mode
+	  :recipe (:host github :repo "magit/git-modes"
+			 :files ("gitconfig-mode.el")))
+(package! gitignore-mode
+	  :recipe (:host github :repo "magit/git-modes"
+			 :files ("gitignore-mode.el")))
+
 (package! ob-deno)
 (package! ob-rust)
 (package! ox-hugo)
@@ -71,6 +82,8 @@
 (package! typescript-mode)
 (package! org-kanban)
 (package! kana)
+(package! good-scroll)
+(package! vlf)
 
 ;; (package! centaur-tabs)
 
@@ -82,14 +95,16 @@
 (package! nox :recipe (:host github :repo "manateelazycat/nox"))
 
 ;; rust development config
-;; (package! rustic :recipe (:host github :repo "brotzeit/rustic"))
-(package! eglot :recipe (:host github :repo "joaotavora/eglot"))
+(package! rustic :recipe (:host github :repo "brotzeit/rustic"))
+;; (package! eglot :recipe (:host github :repo "joaotavora/eglot"))
 
 (package! request)
 (package! netease-cloud-music :recipe (:host github :repo "SpringHan/netease-cloud-music.el"))
 
 (package! zone-matrix :recipe (:host github :repo "ober/zone-matrix"))
 
+;; (package! maple-line :recipe (:host github :repo "honmaple/emacs-maple-line"))
+(package! awesome-tray :recipe (:host github :repo "manateelazycat/awesome-tray"))
 
 ;;(package! ob-powershell :recipe (:local-repo "~/.doom.d/local/ob-powershell.el"))
 ;;(add-load-path! "~/.doom.d/local/ob-powershell.el")

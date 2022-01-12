@@ -40,7 +40,14 @@
     (byte-compile-file tan)
     )
 )
-                
+(defun a()
+  (interactive)
+  (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Config.org")
+  (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+KeyBinding.org")
+  (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Org.org")
+  (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Mode.org")
+  (byte-recompile-directory "e:/spacemacs/emacs26-3/.doom.d/oc/")
+)
 
 (add-hook 'kill-emacs-hook (lambda ()
                             (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Config.org")
@@ -98,3 +105,47 @@
 ;;(setq delete-by-moving-to-trash t)
 
 ;;(setq fancy-splash-image "~/.doom.d/banner/hack.png")
+
+;; (add-hook 'after-change-major-mode-hook
+;; (add-hook 'makrdown-mode-hook
+;;           (lambda ()
+;;                 (setq line-spacing 0.1)
+;;                 ;; (setq header-line-format " ")
+;;                 (setq left-margin-width 2)
+;;                 (setq right-margin-width 2)
+;;             )
+;;           )
+(setq-default line-spacing 0.2)                ;行间距
+(setq-default left-margin-width 1 right-margin-width 1)
+(set-window-buffer nil (current-buffer))
+
+;; (set-face-foreground 'vertical-border "#282c34")
+(set-face-foreground 'vertical-border "black")
+
+;; (set-keyboard-coding-system  'utf-8)
+;; (set-selection-coding-system 'utf-8)
+;; (set-default buffer-file-coding-system 'utf-8)
+
+;;use unicode everywhere
+(when (fboundp 'set-charset-priority)
+  (set-charset-priority 'unicode))
+(prefer-coding-system 'utf-8-unix)
+(modify-coding-system-alist 'process "*" 'utf-8-unix)
+(set-buffer-file-coding-system 'utf-8-unix)
+(set-file-name-coding-system 'utf-8-unix)
+(set-default-coding-systems 'utf-8-unix)
+(set-keyboard-coding-system 'utf-8-unix)
+(set-terminal-coding-system 'utf-8-unix)
+(set-language-environment "UTF-8")
+(setq locale-coding-system 'utf-8-unix)
+(setq default-process-coding-system '(utf-8-unix . utf-8-unix))
+
+(when (eq system-type 'windows-nt)
+  (setq locale-coding-system 'chinese-gbk))
+
+;;The clipboard on windows dose not play well with utf8
+(unless (eq system-type 'windows-nt)
+  (set-clipboard-coding-system 'utf-8)
+  (set-selection-coding-system 'utf-8))
+
+(setq system-time-locale "C")

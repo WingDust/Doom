@@ -52,7 +52,14 @@
     (byte-compile-file tan)
     )
 )
-                
+(defun a()
+  (interactive)
+  (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Config.org")
+  (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+KeyBinding.org")
+  (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Org.org")
+  (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Mode.org")
+  (byte-recompile-directory "e:/spacemacs/emacs26-3/.doom.d/oc/")
+)
 
 (add-hook 'kill-emacs-hook (lambda ()
                             (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Config.org")
@@ -150,3 +157,45 @@
 ;;(setq fancy-splash-image "~/.doom.d/banner/hack.png")
 #+end_src
 
+* 每个窗口添加边距
+#+begin_src emacs-lisp
+;; (add-hook 'after-change-major-mode-hook
+;; (add-hook 'makrdown-mode-hook
+;;           (lambda ()
+;;                 (setq line-spacing 0.1)
+;;                 ;; (setq header-line-format " ")
+;;                 (setq left-margin-width 2)
+;;                 (setq right-margin-width 2)
+;;             )
+;;           )
+(setq-default line-spacing 0.2)                ;行间距
+(setq-default left-margin-width 1 right-margin-width 1)
+(set-window-buffer nil (current-buffer))
+#+end_src
+- [[https://github.com/hlissner/doom-emacs/issues/567][ How to add padding/margins to Emacs buffers?]]
+
+* 通过将窗口分割线与背景色一样来隐藏窗口分割线
+#+begin_src emacs-lisp
+;; (set-face-foreground 'vertical-border "#282c34")
+(set-face-foreground 'vertical-border "black")
+#+end_src
+
+*  修复从 clipboard 粘贴中文
+#+begin_src emacs-lisp
+;; 修复从 clipboard 粘贴中文为 \324 
+(if (eq system-type 'windows-nt)
+    (progn
+      (set-clipboard-coding-system 'utf-16-le)
+      (set-selection-coding-system 'utf-16-le))
+  (set-selection-coding-system 'utf-8))
+(prefer-coding-system 'utf-8-unix)
+(set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8-unix)
+(set-terminal-coding-system 'utf-8-unix)
+(set-keyboard-coding-system 'utf-8-unix)
+(setq locale-coding-system 'utf-8-unix)
+;; Treat clipboard input as UTF-8 string first; compound text next, etc.
+(when (display-graphic-p)
+  (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))) 
+#+end_src
+- [[https://emacs.stackexchange.com/questions/22727/pasting-text-from-clipboard-why-m-instead-of-linebreaks][Pasting Text from Clipboard - why ^M instead of linebreaks?]]
