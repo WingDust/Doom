@@ -142,6 +142,8 @@
      lsp-ui-doc-enable nil
      lsp-ui-doc-show-with-cursor nil
      lsp-ui-doc-show-with-mouse nil
+     lsp-modeline-code-actions-enable nil
+     lsp-modeline-diagnostics-enable nil
      )
                         )
 (after! lsp-mode
@@ -238,3 +240,7 @@
  )
 
 (global-visual-line-mode t)
+
+(require 'insert-translated-name)
+
+(require 'company-english-helper)

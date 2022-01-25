@@ -72,3 +72,4 @@
 (load  "e:/spacemacs/emacs26-3/.doom.d/oc/+KeyBinding")
 (load  "e:/spacemacs/emacs26-3/.doom.d/oc/+Config")
 (load  "e:/spacemacs/emacs26-3/.doom.d/oc/+Mode")
+(load  "e:/spacemacs/emacs26-3/.doom.d/oc/+Tweaks")

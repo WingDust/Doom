@@ -206,6 +206,8 @@
      lsp-ui-doc-enable nil
      lsp-ui-doc-show-with-cursor nil
      lsp-ui-doc-show-with-mouse nil
+     lsp-modeline-code-actions-enable nil
+     lsp-modeline-diagnostics-enable nil
      )
                         )
 (after! lsp-mode
@@ -324,4 +326,18 @@
 (global-visual-line-mode t)
 #+end_src
 - [[https://stackoverflow.com/questions/3281581/how-can-i-enable-line-wrap-on-word-boundaries-only-in-emacs][How can I enable line wrap on word boundaries only in Emacs?]]
+
+* English
+#+begin_src emacs-lisp
+(require 'insert-translated-name)
+
+(require 'company-english-helper)
+#+end_src
+
+* Company
+#+begin_src emacs-lisp
+;; 让 company 补全 yasnippet
+(push 'company-yasnippet company-backends)
+#+end_src
+- [[https://emacs-china.org/t/company-yasnippet/7637][company-yasnippet 在补全提示中显示不出来]]
 

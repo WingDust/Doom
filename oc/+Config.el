@@ -40,12 +40,13 @@
     (byte-compile-file tan)
     )
 )
-(defun a()
+(defun compile-my-config()
   (interactive)
   (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Config.org")
   (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+KeyBinding.org")
   (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Org.org")
   (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Mode.org")
+  (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Tweaks.org")
   (byte-recompile-directory "e:/spacemacs/emacs26-3/.doom.d/oc/")
 )
 
@@ -54,6 +55,7 @@
                             (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+KeyBinding.org")
                             (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Org.org")
                             (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Mode.org")
+                            (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Tweaks.org")
                             (byte-recompile-directory "e:/spacemacs/emacs26-3/.doom.d/oc/")
                              ;; (let ((last-org-doom-changelog (doom-ischange)))
                              ;;     ;;(f-write-text  last-org-doom-changelog 'utf-8
@@ -122,30 +124,25 @@
 ;; (set-face-foreground 'vertical-border "#282c34")
 (set-face-foreground 'vertical-border "black")
 
-;; (set-keyboard-coding-system  'utf-8)
-;; (set-selection-coding-system 'utf-8)
-;; (set-default buffer-file-coding-system 'utf-8)
-
-;;use unicode everywhere
-(when (fboundp 'set-charset-priority)
-  (set-charset-priority 'unicode))
-(prefer-coding-system 'utf-8-unix)
-(modify-coding-system-alist 'process "*" 'utf-8-unix)
-(set-buffer-file-coding-system 'utf-8-unix)
-(set-file-name-coding-system 'utf-8-unix)
-(set-default-coding-systems 'utf-8-unix)
-(set-keyboard-coding-system 'utf-8-unix)
-(set-terminal-coding-system 'utf-8-unix)
-(set-language-environment "UTF-8")
-(setq locale-coding-system 'utf-8-unix)
-(setq default-process-coding-system '(utf-8-unix . utf-8-unix))
-
-(when (eq system-type 'windows-nt)
-  (setq locale-coding-system 'chinese-gbk))
-
-;;The clipboard on windows dose not play well with utf8
-(unless (eq system-type 'windows-nt)
-  (set-clipboard-coding-system 'utf-8)
+;; 修复从 clipboard 粘贴中文为 \324 
+(if (eq system-type 'windows-nt)
+    (progn
+      (set-clipboard-coding-system 'utf-16-le)
+      (set-selection-coding-system 'utf-16-le))
   (set-selection-coding-system 'utf-8))
+(prefer-coding-system 'utf-8-unix)
+;;将utf-8放到编码顺序表的最开始，即先从utf-8开始识别编码，此命令可以多次使用，后指定的编码先探测
 
-(setq system-time-locale "C")
+(set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8-unix)
+(set-terminal-coding-system 'utf-8-unix)
+(set-keyboard-coding-system 'utf-8-unix)
+(setq locale-coding-system 'utf-8-unix)
+;; Treat clipboard input as UTF-8 string first; compound text next, etc.
+(when (display-graphic-p)
+  (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))) 
+
+;; (set-buffer-file-coding-system 'utf-8-unix)
+;;指定当前buffer的写入编码，只对当前buffer有效，即此命令写在配置文件中无效，只能通过M-x来执行
+;; (setq default-buffer-file-coding-system 'utf-8-unix)
+;;指定新建buffer的默认编码为utf-8-unix，换行符为unix的方式

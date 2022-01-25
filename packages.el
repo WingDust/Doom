@@ -103,8 +103,12 @@
 
 (package! zone-matrix :recipe (:host github :repo "ober/zone-matrix"))
 
-;; (package! maple-line :recipe (:host github :repo "honmaple/emacs-maple-line"))
 (package! awesome-tray :recipe (:host github :repo "manateelazycat/awesome-tray"))
+
+;; English 
+(package! insert-translated-name :recipe (:host github :repo "manateelazycat/insert-translated-name"))
+(package! company-english-helper :recipe (:host github :repo "manateelazycat/company-english-helper"))
+
 
 ;;(package! ob-powershell :recipe (:local-repo "~/.doom.d/local/ob-powershell.el"))
 ;;(add-load-path! "~/.doom.d/local/ob-powershell.el")

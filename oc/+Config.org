@@ -52,12 +52,13 @@
     (byte-compile-file tan)
     )
 )
-(defun a()
+(defun compile-my-config()
   (interactive)
   (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Config.org")
   (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+KeyBinding.org")
   (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Org.org")
   (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Mode.org")
+  (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Tweaks.org")
   (byte-recompile-directory "e:/spacemacs/emacs26-3/.doom.d/oc/")
 )
 
@@ -66,6 +67,7 @@
                             (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+KeyBinding.org")
                             (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Org.org")
                             (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Mode.org")
+                            (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Tweaks.org")
                             (byte-recompile-directory "e:/spacemacs/emacs26-3/.doom.d/oc/")
                              ;; (let ((last-org-doom-changelog (doom-ischange)))
                              ;;     ;;(f-write-text  last-org-doom-changelog 'utf-8
@@ -181,6 +183,19 @@
 #+end_src
 
 *  修复从 clipboard 粘贴中文
+#+begin_quote
+Emacs只能指定新建buffer的默认编码，和读取文件时候的编码寻找顺序。文件写入编码 Emacs会根据文件内容来猜测，并保持原有的编码不变。如想改变写入编码，需手动改变。
+
+Windows默认情况下，可以识别中文，也可以输入中文，但是新建文件的编码为 chinese-gbk-dos，为了改为utf-8，并且换行符为unix格式，在配置文件中加入下面这行。
+=(setq default-buffer-file-coding-system 'utf-8-unix)=
+
+附上手动修改编码的方法：
+M-x set-buffer-file-coding-system coding 保存后，文件即是coding编码
+C-x f coding 保存后，文件为coding编码
+C-x r coding 以coding编码重新读取文件
+C-x c coding 以coding编码执行接下去输入的命令，如 C-x c utf-8 C-x C-f a.txt 用utf-8编码打开a.txt文件
+#+end_quote
+
 #+begin_src emacs-lisp
 ;; 修复从 clipboard 粘贴中文为 \324 
 (if (eq system-type 'windows-nt)
@@ -189,6 +204,8 @@
       (set-selection-coding-system 'utf-16-le))
   (set-selection-coding-system 'utf-8))
 (prefer-coding-system 'utf-8-unix)
+;;将utf-8放到编码顺序表的最开始，即先从utf-8开始识别编码，此命令可以多次使用，后指定的编码先探测
+
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8-unix)
 (set-terminal-coding-system 'utf-8-unix)
@@ -197,5 +214,12 @@
 ;; Treat clipboard input as UTF-8 string first; compound text next, etc.
 (when (display-graphic-p)
   (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))) 
+
+;; (set-buffer-file-coding-system 'utf-8-unix)
+;;指定当前buffer的写入编码，只对当前buffer有效，即此命令写在配置文件中无效，只能通过M-x来执行
+;; (setq default-buffer-file-coding-system 'utf-8-unix)
+;;指定新建buffer的默认编码为utf-8-unix，换行符为unix的方式
+
+                        
 #+end_src
 - [[https://emacs.stackexchange.com/questions/22727/pasting-text-from-clipboard-why-m-instead-of-linebreaks][Pasting Text from Clipboard - why ^M instead of linebreaks?]]
