@@ -5,7 +5,7 @@
 ;;; -*- lexical-binding: t; -*-
 #+end_src
 
-* C-h
+*  C-h
 #+begin_src emacs-lisp
 ;;(define-key isearch-mode-map (kbd "C-h") 'isearch-delete-char)
 ;;(map! :ie "C-h" #'backward-delete-char-untabify)
@@ -21,7 +21,7 @@
 #+end_src
 - [[https://www.cheng92.com/emacs/my-emacs-configuration/#headline-14][key 绑定函数]]
 
-* C-s swiper
+*  C-s swiper
 #+begin_src emacs-lisp
 (global-set-key "\C-s" 'swiper)
 #+end_src
@@ -33,33 +33,39 @@
           (message (format"debug-on-error : %s" debug-on-error))))
 #+end_src
 
-* 注释当前行
+*  注释当前行
 
 #+begin_src emacs-lisp
 (global-set-key (kbd "C-;") 'comment-line)
 #+end_src
 
-* tab 匹配 pair
+*  tab 匹配 pair
 
 #+begin_src emacs-lisp
 (global-evil-matchit-mode 1)
 (evil-define-key 'normal 'global (kbd "<tab>")  'evil-jump-item)
 #+end_src
 
-* 翻译光标下的单词
+*  翻译光标下的单词
 
 #+begin_src emacs-lisp
 (map! :n "SPC o y" #'youdao-dictionary-search-at-point+)
 #+end_src
 
-* C-p 上一个
+*  C-p 上一个
 
 #+begin_src emacs-lisp
 (map! :i "C-p" #'previous-line)
 #+end_src
 
-* C-n 上一个 
+*  C-n 上一个 
 
 #+begin_src emacs-lisp
 (map! :i "C-n" #'next-line)
+#+end_src
+
+*  在 visual-char 按将进入 visual-line
+
+#+begin_src emacs-lisp
+(map! :v "v" #'evil-visual-line)
 #+end_src

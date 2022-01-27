@@ -25,3 +25,5 @@
 (map! :i "C-p" #'previous-line)
 
 (map! :i "C-n" #'next-line)
+
+(map! :v "v" #'evil-visual-line)

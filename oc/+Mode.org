@@ -341,3 +341,21 @@
 #+end_src
 - [[https://emacs-china.org/t/company-yasnippet/7637][company-yasnippet 在补全提示中显示不出来]]
 
+*  
+#+begin_src emacs-lisp
+(dolist (relativenumber (list
+               ;;'js-mode-hook
+               ;;'rust-mode-hook
+               ;;'python-mode-hook
+               'rustic-mode-hook
+               'org-mode-hook
+               ;;'sh-mode-hook
+               ;;'c-mode-common-hook
+               ;;'c-mode-hook
+               ;;'haskell-mode-hook
+               ))
+  (add-hook relativenumber  '(lambda ()
+                               (menu-bar--display-line-numbers-mode-relative)
+                               )))
+#+end_src
+

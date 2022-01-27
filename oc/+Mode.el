@@ -244,3 +244,21 @@
 (require 'insert-translated-name)
 
 (require 'company-english-helper)
+
+;; 让 company 补全 yasnippet
+(push 'company-yasnippet company-backends)
+
+(dolist (relativenumber (list
+               ;;'js-mode-hook
+               ;;'rust-mode-hook
+               ;;'python-mode-hook
+               'rustic-mode-hook
+               'org-mode-hook
+               ;;'sh-mode-hook
+               ;;'c-mode-common-hook
+               ;;'c-mode-hook
+               ;;'haskell-mode-hook
+               ))
+  (add-hook relativenumber  '(lambda ()
+                               (menu-bar--display-line-numbers-mode-relative)
+                               )))
