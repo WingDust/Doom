@@ -1,5 +1,10 @@
 #+TITLE:  Tweaks
 
+* lexical
+#+begin_src emacs-lisp
+;;; -*- lexical-binding: t; -*-
+#+end_src
+
 * 将当前行下的 - 转成 _
 #+begin_src emacs-lisp
 ;;;###autoload
@@ -49,3 +54,48 @@
         )
         )
 #+end_src
+* 在当前光标后面输入 ->
+#+begin_src emacs-lisp
+(defun insert-singlearrow ()
+  "在当前光标后面输入 ->"
+  (interactive)
+  (evil-append 0)
+  (insert "->")
+  )
+#+end_src
+* 在当前光标下输入 &
+#+begin_src emacs-lisp
+(defun insert-ampersand ()
+  "在当前光标下输入 &"
+  (interactive)
+  (insert "&")
+  )
+#+end_src
+* 在当前光标下输入 *
+#+begin_src emacs-lisp
+(defun insert-asterisk()
+  "在当前光标下输入 *"
+  (interactive)
+  (insert "*")
+  )
+#+end_src
+* 在当前光标后面输入  ::
+#+begin_src emacs-lisp
+(defun insert-doublecolon()
+  "在当前光标后面输入  ::"
+  (interactive)
+ (evil-append 0)
+  (insert "::")
+  )
+#+end_src
+
+* 在当前光标后面输入  String
+#+begin_src emacs-lisp
+(defun insert-String()
+  "在当前光标后面输入  String"
+  (interactive)
+ (evil-append 0)
+  (insert "String")
+  )
+#+end_src
+* 

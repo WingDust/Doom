@@ -130,6 +130,7 @@
                         ))
 (after! org
         ;; 设置状态序列
+        ;; 一个 buffer 会有监时的 org-todo-keywords,所以需要重新加载 buffer
         (setq org-todo-keywords
         '((sequence
                 "TODO(t)"
@@ -138,8 +139,9 @@
                 "INBOX(i)"
                 "NEXT(n)"
                 "LATER(l)"
-                "WAIT/FORWARD(w)"
-                "MAYBE/FUTURE(m)"
+                ;; "WAIT/FORWARD(w)"
+                ;; "MAYBE/FUTURE(m)"
+                "Fancy"
                 "|"
                 "CANCEL(c)"
                 "DONE(d)" )))
@@ -149,13 +151,37 @@
         '(
                 ("IDEA" . (:foreground "azure" :weight bold))
                 ("Destory" . (:foreground "LightPink"))
-                ("INBOX" . (:foreground "blue" :weight bold))
+                ("INBOX" . (:foreground "#677691" :weight bold))
                 ("NEXT"  .  org-warning)
-                ("LATER" . "yellow")
-                ("WAIT/FORWARD" . "blue")
-                ("MAYBE/FUTURE" . "purple")
-                ("DONE" . "green")
+                ("LATER" . "#3B4252")
+                ;; ("WAIT/FORWARD" . "blue")
+                ;; ("MAYBE/FUTURE" . "purple")
+                ("DONE" . "#81A1C1")
                 ("CANCEL" ."grey")
+                ("Fancy" . "#D08770")
                 )
         )
                 )
+
+;; 目前只在高版本 org 支持
+
+(defvar idle-agenda-timer nil)
+
+(defun idle-show-agenda()
+        (org-agenda nil "n")
+  )
+
+(defun idle-show-agenda-set-timer()
+  ;; (interactive)
+   (setq idle-agenda-timer 
+       (run-with-idle-timer 3600 t 'idle-show-agenda)
+     )
+    )
+(idle-show-agenda-set-timer)
+(defun disable-idle-show-agenda()
+  (interactive)
+  (when idle-agenda-timer
+    (cancel-timer idle-agenda-timer)
+    (setq idle-agenda-timer nil)
+    )
+)

@@ -75,10 +75,10 @@
 (package! elfeed)
 ;;(package! nswbuff)
 (package! alda-mode)
-(package! ivy-posframe)
+;;(package! ivy-posframe)
+;;(package! ivy-prescient)
 (package! mini-modeline)
 (package! prescient)
-(package! ivy-prescient)
 (package! typescript-mode)
 (package! org-kanban)
 (package! kana)
@@ -96,6 +96,7 @@
 
 ;; rust development config
 (package! rustic :recipe (:host github :repo "brotzeit/rustic"))
+;;(package! dap-mode)
 ;; (package! eglot :recipe (:host github :repo "joaotavora/eglot"))
 
 (package! request)
@@ -109,6 +110,10 @@
 (package! insert-translated-name :recipe (:host github :repo "manateelazycat/insert-translated-name"))
 (package! company-english-helper :recipe (:host github :repo "manateelazycat/company-english-helper"))
 
+
+(package! beancount-mode :recipe (:host github :repo "beancount/beancount-mode"))
+
+(package! eye-care :recipe (:host  github :repo "Emacs-Phoenix/eye-care"))
 
 ;;(package! ob-powershell :recipe (:local-repo "~/.doom.d/local/ob-powershell.el"))
 ;;(add-load-path! "~/.doom.d/local/ob-powershell.el")

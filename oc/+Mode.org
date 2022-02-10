@@ -39,7 +39,8 @@
 * 删除空格
 
 #+begin_src emacs-lisp
-(add-hook 'switch-buffer-functions
+;;(add-hook 'switch-buffer-functions
+(add-hook 'windows-buffer-change-functions
           ;;(lambda (prev curr)
           (lambda (curr)
             (cl-assert (eq curr (current-buffer)))  ;; Always t
@@ -52,6 +53,7 @@
 #+end_src
 - [[https://www.gnu.org/software/emacs/manual/html_node/eintr/Buffer-Size-_0026-Locations.html][Buffer Size and the Location of Point]]
 - [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Narrowing.html][Narrowing]]
+- [[https://emacs-china.org/t/window-buffer-change-hook/12645][window的buffer change hook]]
 
 * 网易云音乐
 
@@ -76,32 +78,32 @@
 * ivy
 
 #+begin_src emacs-lisp
-(use-package prescient
-  :after counsel
-  :config
-  (prescient-persist-mode 1))
-
-(use-package ivy-prescient
-  :after counsel
-  :config (ivy-prescient-mode 1)
-  )
+;;(use-package prescient
+;;  :after counsel
+;;  :config
+;;  (prescient-persist-mode 1))
+;;
+;;(use-package ivy-prescient
+;;  :after counsel
+;;  :config (ivy-prescient-mode 1)
+;;  )
 #+end_src
 
 * ivy posframe
 #+begin_src emacs-lisp
-(use-package ivy-posframe
-  :disabled
-  :custom
-  (ivy-posframe-width      115)
-  (ivy-posframe-min-width  115)
-  (ivy-posframe-height     10)
-  (ivy-posframe-min-height 10)
-  :config
-  (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
-  (setq ivy-posframe-parameters '((parent-frame . nil)
-                                  (left-fringe . 8)
-                                  (right-fringe . 8)))
-  (ivy-posframe-mode 1))
+;;(use-package ivy-posframe
+;;  :disabled
+;;  :custom
+;;  (ivy-posframe-width      115)
+;;  (ivy-posframe-min-width  115)
+;;  (ivy-posframe-height     10)
+;;  (ivy-posframe-min-height 10)
+;;  :config
+;;  (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
+;;  (setq ivy-posframe-parameters '((parent-frame . nil)
+;;                                  (left-fringe . 8)
+;;                                  (right-fringe . 8)))
+;;  (ivy-posframe-mode 1))
 #+end_src
 
 * counsel-fzf
@@ -263,6 +265,12 @@
 #+end_src
 - [[https://dangirsh.org/projects/doom-config.html#rust][doom-config]]
 
+* dap
+#+begin_src emacs-lisp
+;; Enabling only some features
+;; (setq dap-auto-configure-features '(sessions locals controls tooltip))
+#+end_src
+
 * zone
 #+begin_src emacs-lisp
 (require 'zone-matrix)
@@ -330,6 +338,7 @@
 * English
 #+begin_src emacs-lisp
 (require 'insert-translated-name)
+(setq insert-translated-name-translate-engine "youdao")
 
 (require 'company-english-helper)
 #+end_src
@@ -341,21 +350,33 @@
 #+end_src
 - [[https://emacs-china.org/t/company-yasnippet/7637][company-yasnippet 在补全提示中显示不出来]]
 
-*  
+* 一些 mode添加 相对行号
 #+begin_src emacs-lisp
-(dolist (relativenumber (list
-               ;;'js-mode-hook
-               ;;'rust-mode-hook
-               ;;'python-mode-hook
-               'rustic-mode-hook
-               'org-mode-hook
-               ;;'sh-mode-hook
-               ;;'c-mode-common-hook
-               ;;'c-mode-hook
-               ;;'haskell-mode-hook
-               ))
-  (add-hook relativenumber  '(lambda ()
-                               (menu-bar--display-line-numbers-mode-relative)
-                               )))
+;; (dolist (relativenumber (list
+;;                ;;'js-mode-hook
+;;                ;;'rust-mode-hook
+;;                ;;'python-mode-hook
+;;                'rustic-mode-hook
+;;                'org-mode-hook
+;;                'emacs-lisp-mode-hook
+;;                ;;'sh-mode-hook
+;;                ;;'c-mode-common-hook
+;;                ;;'c-mode-hook
+;;                ;;'haskell-mode-hook
+;;                ))
+;;   (add-hook relativenumber  '(lambda ()
+;;                                (menu-bar--display-line-numbers-mode-relative)
+;;                                )))
+#+end_src
+* eye-care
+#+begin_src emacs-lisp
+(require 'eye-care)
+#+end_src
+- [[https://www.chencanhao.com/Emacs/emacs-timer][定时提示休息眼睛的 elisp 插件]]
+
+* beancount
+#+begin_src emacs-lisp
+(require 'beancount)
+(add-to-list 'auto-mode-alist '("\\.beancount\\'" . beancount-mode))
 #+end_src
 

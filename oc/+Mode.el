@@ -14,7 +14,8 @@
 
 ;;(package! ws-butler :disable t)
 
-(add-hook 'switch-buffer-functions
+;;(add-hook 'switch-buffer-functions
+(add-hook 'windows-buffer-change-functions
           ;;(lambda (prev curr)
           (lambda (curr)
             (cl-assert (eq curr (current-buffer)))  ;; Always t
@@ -33,29 +34,29 @@
 
 (setq alda-binary-location "E:/alda/alda.exe")
 
-(use-package prescient
-  :after counsel
-  :config
-  (prescient-persist-mode 1))
+;;(use-package prescient
+;;  :after counsel
+;;  :config
+;;  (prescient-persist-mode 1))
+;;
+;;(use-package ivy-prescient
+;;  :after counsel
+;;  :config (ivy-prescient-mode 1)
+;;  )
 
-(use-package ivy-prescient
-  :after counsel
-  :config (ivy-prescient-mode 1)
-  )
-
-(use-package ivy-posframe
-  :disabled
-  :custom
-  (ivy-posframe-width      115)
-  (ivy-posframe-min-width  115)
-  (ivy-posframe-height     10)
-  (ivy-posframe-min-height 10)
-  :config
-  (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
-  (setq ivy-posframe-parameters '((parent-frame . nil)
-                                  (left-fringe . 8)
-                                  (right-fringe . 8)))
-  (ivy-posframe-mode 1))
+;;(use-package ivy-posframe
+;;  :disabled
+;;  :custom
+;;  (ivy-posframe-width      115)
+;;  (ivy-posframe-min-width  115)
+;;  (ivy-posframe-height     10)
+;;  (ivy-posframe-min-height 10)
+;;  :config
+;;  (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
+;;  (setq ivy-posframe-parameters '((parent-frame . nil)
+;;                                  (left-fringe . 8)
+;;                                  (right-fringe . 8)))
+;;  (ivy-posframe-mode 1))
 
 ;; (setq counsel--fzf-dir "C:/Users/Administrator/scoop/shims/")
 
@@ -197,6 +198,9 @@
 ;;   (delete 'rust-cargo flycheck-checkers)
 ;;   (delete 'rust flycheck-checkers))
 
+;; Enabling only some features
+;; (setq dap-auto-configure-features '(sessions locals controls tooltip))
+
 (require 'zone-matrix)
 ;;(require 'zone-matrix-settings)
 ;;(require 'zone-settings)
@@ -242,23 +246,30 @@
 (global-visual-line-mode t)
 
 (require 'insert-translated-name)
+(setq insert-translated-name-translate-engine "youdao")
 
 (require 'company-english-helper)
 
 ;; 让 company 补全 yasnippet
 (push 'company-yasnippet company-backends)
 
-(dolist (relativenumber (list
-               ;;'js-mode-hook
-               ;;'rust-mode-hook
-               ;;'python-mode-hook
-               'rustic-mode-hook
-               'org-mode-hook
-               ;;'sh-mode-hook
-               ;;'c-mode-common-hook
-               ;;'c-mode-hook
-               ;;'haskell-mode-hook
-               ))
-  (add-hook relativenumber  '(lambda ()
-                               (menu-bar--display-line-numbers-mode-relative)
-                               )))
+;; (dolist (relativenumber (list
+;;                ;;'js-mode-hook
+;;                ;;'rust-mode-hook
+;;                ;;'python-mode-hook
+;;                'rustic-mode-hook
+;;                'org-mode-hook
+;;                'emacs-lisp-mode-hook
+;;                ;;'sh-mode-hook
+;;                ;;'c-mode-common-hook
+;;                ;;'c-mode-hook
+;;                ;;'haskell-mode-hook
+;;                ))
+;;   (add-hook relativenumber  '(lambda ()
+;;                                (menu-bar--display-line-numbers-mode-relative)
+;;                                )))
+
+(require 'eye-care)
+
+(require 'beancount)
+(add-to-list 'auto-mode-alist '("\\.beancount\\'" . beancount-mode))

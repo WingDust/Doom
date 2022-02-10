@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 ;;;###autoload
 (defun hyphen-to-underline()
         "将当前行下的 - 转成 _"
@@ -40,3 +42,36 @@
           )
         )
         )
+
+(defun insert-singlearrow ()
+  "在当前光标后面输入 ->"
+  (interactive)
+  (evil-append 0)
+  (insert "->")
+  )
+
+(defun insert-ampersand ()
+  "在当前光标下输入 &"
+  (interactive)
+  (insert "&")
+  )
+
+(defun insert-asterisk()
+  "在当前光标下输入 *"
+  (interactive)
+  (insert "*")
+  )
+
+(defun insert-doublecolon()
+  "在当前光标后面输入  ::"
+  (interactive)
+ (evil-append 0)
+  (insert "::")
+  )
+
+(defun insert-String()
+  "在当前光标后面输入  String"
+  (interactive)
+ (evil-append 0)
+  (insert "String")
+  )
