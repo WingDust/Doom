@@ -14,7 +14,7 @@
 (global-set-key (kbd "C-h") 'delete-backward-char)
 #+end_src
 - [[https://emacs.stackexchange.com/questions/35524/how-to-remap-backward-delete-and-help-command-while-using-emacs-from-a-terminal][How to remap backward-delete and help command while using Emacs from a terminal emulator?]]
-- [[https://github.com/hlissner/doom-emacs/issues/901][[Question] Remap C-h]]
+- [[https://github.com/hlissner/doom-emacs/issues/901][Question Remap C-h]]
 * SPA f j dired-jump
 #+begin_src emacs-lisp
 (map! :n "SPC f j" #'dired-jump)
