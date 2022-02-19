@@ -39,7 +39,7 @@
 (setq org-ellipsis "⤵")
 
 (after! org-superstar
-    (setq org-superstar-headline-bullets-list '("⬡" "❀" "○" "◆" "◉")
+    (setq org-superstar-headline-bullets-list '("⬡" "◉" "›" "▷" "○");;◆
         org-superstar-prettify-item-bullets t )
         (setq org-superstar-item-bullet-alist '((?* . ?•)
                                                 (?+ . ?•)
@@ -64,7 +64,8 @@
                            (org-agenda-files :maxlevel . 4))
     )
 
-;;(add-hook 'org-mode-hook 'org-appear-mode)
+(add-hook 'org-mode-hook 'org-appear-mode)
+(setq org-appear-autolinks t)
 
 (defun nm/add-newline-between-headlines ()
   ""

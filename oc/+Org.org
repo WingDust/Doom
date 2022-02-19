@@ -92,7 +92,7 @@
 
 #+begin_src emacs-lisp
 (after! org-superstar
-    (setq org-superstar-headline-bullets-list '("⬡" "❀" "○" "◆" "◉")
+    (setq org-superstar-headline-bullets-list '("⬡" "◉" "›" "▷" "○");;◆
         org-superstar-prettify-item-bullets t )
         (setq org-superstar-item-bullet-alist '((?* . ?•)
                                                 (?+ . ?•)
@@ -140,7 +140,8 @@
 * 将 Org mode 中的标记语言渲染的样子临时还原为文本的，以便于修改
 
 #+begin_src emacs-lisp
-;;(add-hook 'org-mode-hook 'org-appear-mode)
+(add-hook 'org-mode-hook 'org-appear-mode)
+(setq org-appear-autolinks t)
 #+end_src
 
 

@@ -53,6 +53,20 @@
 (package! vi-tilde-fringe :disable t)
 (package! ws-butler :disable t)
 
+(disable-packages! doom-modeline)
+
+
+;;; fix https://github.com/hlissner/doom-emacs/issues/5667
+(package! gitconfig-mode
+	  :recipe (:host github :repo "magit/git-modes"
+			 :files ("gitconfig-mode.el")))
+(package! gitignore-mode
+	  :recipe (:host github :repo "magit/git-modes"
+			 :files ("gitignore-mode.el")))
+
+
+
+
 (package! ob-deno)
 ;;(package! ob-rust)
 (package! ox-hugo)
@@ -71,10 +85,10 @@
 (package! typescript-mode)
 (package! org-kanban)
 
-;; (package! centaur-tabs)
 
+(package! meow)
 
-;;(package! org-appear :recipe (:host github :repo "awth13/org-appear"))
+(package! org-appear :recipe (:host github :repo "awth13/org-appear"))
 ;;(package! org-starless :recipe (:host github :repo "TonCherAmi/org-starless"))
 
 (package! auto-save :recipe (:host github :repo "manateelazycat/auto-save"))
@@ -82,13 +96,23 @@
 
 ;; rust development config
 ;; (package! rustic :recipe (:host github :repo "brotzeit/rustic"))
-(package! eglot :recipe (:host github :repo "joaotavora/eglot"))
+;; (package! eglot :recipe (:host github :repo "joaotavora/eglot"))
 
 (package! request)
 (package! netease-cloud-music :recipe (:host github :repo "SpringHan/netease-cloud-music.el"))
 
-;;(package! zone-matrix :recipe (:host github :repo "ober/zone-matrix"))
+(package! zone-matrix :recipe (:host github :repo "ober/zone-matrix"))
 
+(package! awesome-tray :recipe (:host github :repo "manateelazycat/awesome-tray"))
+
+;; English 
+(package! insert-translated-name :recipe (:host github :repo "manateelazycat/insert-translated-name"))
+(package! company-english-helper :recipe (:host github :repo "manateelazycat/company-english-helper"))
+
+
+(package! beancount-mode :recipe (:host github :repo "beancount/beancount-mode"))
+
+(package! eye-care :recipe (:host  github :repo "Emacs-Phoenix/eye-care"))
 
 ;;(package! ob-powershell :recipe (:local-repo "~/.doom.d/local/ob-powershell.el"))
 ;;(add-load-path! "~/.doom.d/local/ob-powershell.el")

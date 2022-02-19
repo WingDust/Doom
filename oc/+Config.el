@@ -40,7 +40,7 @@
     (byte-compile-file tan)
     )
   )
-(defun a()
+(defun compile-my-config()
   (interactive)
 (compile-Org-to-elisp "~/.doom.d/oc/+Config.org")
 (compile-Org-to-elisp "~/.doom.d/oc/+KeyBinding.org")
@@ -79,9 +79,9 @@
   (setq read-process-output-max 1048576))
 
 (setq doom-font
-      (font-spec :family "Source Code Variable"
+      (font-spec :family "Cascadia Mono PL"
+      ;;(font-spec :family "Source Code Variable"
       ;;(font-spec :family "Sarasa Mono TC Light"
-      ;; (font-spec :family "Cascadia Mono"
       ;;            :size 18
        )
       )
@@ -107,3 +107,34 @@
 ;;(setq delete-by-moving-to-trash t)
 
 ;;(setq fancy-splash-image "~/.doom.d/banner/hack.png")
+
+;; (add-hook 'after-change-major-mode-hook
+;; (add-hook 'makrdown-mode-hook
+;;           (lambda ()
+;;                 (setq line-spacing 0.1)
+;;                 ;; (setq header-line-format " ")
+;;                 (setq left-margin-width 2)
+;;                 (setq right-margin-width 2)
+;;             )
+;;           )
+(setq-default line-spacing 0.2)                ;行间距
+(setq-default left-margin-width 1 right-margin-width 1)
+(set-window-buffer nil (current-buffer))
+
+;; (set-face-foreground 'vertical-border "#282c34")
+(set-face-foreground 'vertical-border "black")
+
+(global-hide-mode-line-mode 1)
+(require 'awesome-tray)
+(awesome-tray-mode 1)
+(setq
+ awesome-tray-active-modules '("mode-name" "location" "buffer-name")
+ awesome-tray-mode-line-active-color "White"
+ )
+
+(global-visual-line-mode t)
+
+(require 'insert-translated-name)
+(setq insert-translated-name-translate-engine "youdao")
+
+(require 'company-english-helper)

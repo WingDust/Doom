@@ -18,10 +18,22 @@
 (global-set-key (kbd "C-;") 'comment-line)
 
 (global-evil-matchit-mode 1)
-(evil-define-key 'normal 'global (kbd "<tab>")  'evil-jump-item)
+;; 在 org mode 中没用 
+(defun +tab-match-head-and-end()
+  "gg Tab 首尾切换来做 到行首与到行尾"
+  (interactive)
+(if (= (point) 1)
+        (goto-char (point-max))
+        (evil-jump-item)
+    )
+  )
+;;(evil-define-key 'normal 'global (kbd "<tab>")  'evil-jump-item)
+(evil-define-key 'normal 'global (kbd "<tab>")  '+tab-match-head-and-end)
 
 (map! :n "SPC o y" #'youdao-dictionary-search-at-point+)
 
 (map! :i "C-p" #'previous-line)
 
 (map! :i "C-n" #'next-line)
+
+(map! :v "v" #'evil-visual-line)

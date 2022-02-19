@@ -45,7 +45,18 @@
 
 #+begin_src emacs-lisp
 (global-evil-matchit-mode 1)
-(evil-define-key 'normal 'global (kbd "<tab>")  'evil-jump-item)
+;; 在 org mode 中没用 
+(defun +tab-match-head-and-end()
+  "gg Tab 首尾切换来做 到行首与到行尾"
+  (interactive)
+(if (= (point) 1)
+        (goto-char (point-max))
+        (evil-jump-item)
+    )
+  )
+;;(evil-define-key 'normal 'global (kbd "<tab>")  'evil-jump-item)
+(evil-define-key 'normal 'global (kbd "<tab>")  '+tab-match-head-and-end)
+
 #+end_src
 
 * 翻译光标下的单词
@@ -64,4 +75,10 @@
 
 #+begin_src emacs-lisp
 (map! :i "C-n" #'next-line)
+#+end_src
+
+*  在 visual-char 按将进入 visual-line
+
+#+begin_src emacs-lisp
+(map! :v "v" #'evil-visual-line)
 #+end_src

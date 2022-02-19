@@ -2,6 +2,9 @@
 
 (require 'auto-save)
 ;;(load! auto-save)
+(setq
+ auto-save-idle 3
+ )
 (auto-save-enable)
 
 (centered-window-mode t)
@@ -31,29 +34,29 @@
 
 ;; (setq alda-binary-location "E:/alda/alda.exe")
 
-(use-package prescient
-  :after counsel
-  :config
-  (prescient-persist-mode 1))
+;; (use-package prescient
+;;   :after counsel
+;;   :config
+;;   (prescient-persist-mode 1))
 
-(use-package ivy-prescient
-  :after counsel
-  :config (ivy-prescient-mode 1)
-  )
+;; (use-package ivy-prescient
+;;   :after counsel
+;;   :config (ivy-prescient-mode 1)
+;;   )
 
-(use-package ivy-posframe
-  :disabled
-  :custom
-  (ivy-posframe-width      115)
-  (ivy-posframe-min-width  115)
-  (ivy-posframe-height     10)
-  (ivy-posframe-min-height 10)
-  :config
-  (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
-  (setq ivy-posframe-parameters '((parent-frame . nil)
-                                  (left-fringe . 8)
-                                  (right-fringe . 8)))
-  (ivy-posframe-mode 1))
+;; (use-package ivy-posframe
+;;   :disabled
+;;   :custom
+;;   (ivy-posframe-width      115)
+;;   (ivy-posframe-min-width  115)
+;;   (ivy-posframe-height     10)
+;;   (ivy-posframe-min-height 10)
+;;   :config
+;;   (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
+;;   (setq ivy-posframe-parameters '((parent-frame . nil)
+;;                                   (left-fringe . 8)
+;;                                   (right-fringe . 8)))
+;;   (ivy-posframe-mode 1))
 
 ;;(setq display-line-numbers-type nil)
 (remove-hook! '(prog-mode-hook text-mode-hook conf-mode-hook)
@@ -102,3 +105,18 @@
 ;;(setq zone-timer (run-with-idle-timer 180 t 'zone))
 
 ;;任意字符
+
+(global-hide-mode-line-mode 1)
+(require 'awesome-tray)
+(awesome-tray-mode 1)
+(setq
+ awesome-tray-active-modules '("mode-name" "location" "buffer-name")
+ awesome-tray-mode-line-active-color "White"
+ )
+
+(global-visual-line-mode t)
+
+(require 'insert-translated-name)
+(setq insert-translated-name-translate-engine "youdao")
+
+(require 'company-english-helper)
