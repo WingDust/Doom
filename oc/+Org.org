@@ -139,8 +139,8 @@
 
 #+end_src
 - [[https://emacs.stackexchange.com/questions/55014/how-do-i-move-a-subtree-to-another-file][(setq org-refile-use-outline-path 'file)]]
-- [[https://emacs.stackexchange.com/questions/36505/org-mode-refile-multiple-locations-with-same-name-as-target][Org mode refile - multiple locations with same name as target
-]]
+- [[https://emacs.stackexchange.com/questions/36505/org-mode-refile-multiple-locations-with-same-name-as-target][Org mode refile - multiple locations with same name as target]]
+
 * 将 Org mode 中的标记语言渲染的样子临时还原为文本的，以便于修改
 
 #+begin_src emacs-lisp

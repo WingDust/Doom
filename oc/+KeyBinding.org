@@ -25,7 +25,8 @@
 #+begin_src emacs-lisp
 (global-set-key "\C-s" 'swiper)
 #+end_src
- 手动显示
+ 
+* 手动显示 debug 信息
 #+begin_src emacs-lisp
 (global-set-key (kbd"C-c C-d")
         (lambda () (interactive)

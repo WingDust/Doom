@@ -19,6 +19,8 @@
 
 #+begin_src emacs-lisp
 (centered-window-mode t)
+;; 增加centered-window-mode 最大宽度，以减少换行
+(setq cwm-centered-window-width 120)
 #+end_src
 
 
