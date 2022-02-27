@@ -382,3 +382,14 @@
 (add-to-list 'auto-mode-alist '("\\.beancount\\'" . beancount-mode))
 #+end_src
 
+* atomic-chrome
+#+begin_src emacs-lisp
+(require 'atomic-chrome)
+#+end_src
+
+* window-numbering
+#+begin_src emacs-lisp
+;; (window-numbering-mode 1)
+#+end_src
+
+

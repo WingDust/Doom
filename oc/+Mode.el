@@ -7,6 +7,8 @@
 (auto-save-enable)
 
 (centered-window-mode t)
+;; 增加centered-window-mode 最大宽度，以减少换行
+(setq cwm-centered-window-width 120)
 
 (with-current-buffer "*scratch*"
   (lisp-interaction-mode)
@@ -273,3 +275,7 @@
 
 (require 'beancount)
 (add-to-list 'auto-mode-alist '("\\.beancount\\'" . beancount-mode))
+
+(require 'atomic-chrome)
+
+;; (window-numbering-mode 1)

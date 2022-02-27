@@ -86,7 +86,9 @@
 (package! vlf)
 
 ;; (package! centaur-tabs)
+;; (package! window-numbering)
 
+(package! atomic-chrome)
 
 (package! org-appear :recipe (:host github :repo "awth13/org-appear"))
 ;;(package! org-starless :recipe (:host github :repo "TonCherAmi/org-starless"))

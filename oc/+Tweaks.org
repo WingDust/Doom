@@ -89,6 +89,7 @@
   )
 #+end_src
 
+
 * 在当前光标后面输入  String
 #+begin_src emacs-lisp
 (defun insert-String()
@@ -99,3 +100,15 @@
   )
 #+end_src
 * 
+* 创建 scratch bufferr
+#+begin_quote
+用于当不小心将 =*scratch*= kill
+#+end_quote
+#+begin_src emacs-lisp
+(defun create-scratch-buffer nil
+   "create a scratch buffer"
+   (interactive)
+   (switch-to-buffer (get-buffer-create "*scratch*"))
+   (lisp-interaction-mode))      
+#+end_src
+- [[https://stackoverflow.com/questions/234963/re-open-scratch-buffer-in-emacs][Re-open *scratch* buffer in Emacs?]]
