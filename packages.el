@@ -89,12 +89,13 @@
 ;; (package! window-numbering)
 
 (package! atomic-chrome)
+(package! sphinx-doc)
 
 (package! org-appear :recipe (:host github :repo "awth13/org-appear"))
 ;;(package! org-starless :recipe (:host github :repo "TonCherAmi/org-starless"))
 
 (package! auto-save :recipe (:host github :repo "manateelazycat/auto-save"))
-(package! nox :recipe (:host github :repo "manateelazycat/nox"))
+;; (package! nox :recipe (:host github :repo "manateelazycat/nox"))
 
 ;; rust development config
 (package! rustic :recipe (:host github :repo "brotzeit/rustic"))

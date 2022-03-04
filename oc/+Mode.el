@@ -66,19 +66,30 @@
 (remove-hook! '(prog-mode-hook text-mode-hook conf-mode-hook)
               #'display-line-numbers-mode)
 
+(use-package lsp-pyright
+  :ensure t
+  :hook (python-mode . (lambda ()
+                          (require 'lsp-pyright)
+                          (lsp))))  ; or lsp-deferred
+
+(add-hook 'python-mode-hook (lambda ()
+                                (require 'sphinx-doc)
+                                (sphinx-doc-mode t)))
+
 ;; doom require =pip install pytest nose black=
 ;; 需要 npm i -g pyright
 
-(require 'nox)
 
-(setq nox-python-server "pyright")
-(if (eq system-type 'windows-nt)
-    (setq nox-python-path "E:/python/python3.8.1/python.exe"))
-(setq nox-autoshutdown t) ;; kill bufer 时自动关闭nox的服务。
-(dolist (hook (list
+;; (require 'nox)
+
+;; (setq nox-python-server "pyright")
+;; (if (eq system-type 'windows-nt)
+    ;; (setq nox-python-path "E:/python/python3.8.1/python.exe"))
+;; (setq nox-autoshutdown t) ;; kill bufer 时自动关闭nox的服务。
+;; (dolist (hook (list
                ;;'js-mode-hook
                ;;'rust-mode-hook
-               'python-mode-hook
+               ;; 'python-mode-hook
                ;;'ruby-mode-hook
                ;;'java-mode-hook
                ;;'sh-mode-hook
@@ -88,8 +99,8 @@
                ;;'csharp-mode-hook
                ;;'c++-mode-hook
                ;;'haskell-mode-hook
-               ))
-  (add-hook hook '(lambda () (nox-ensure))))
+               ;; ))
+  ;; (add-hook hook '(lambda () (nox-ensure))))
 
 ;; rustup update
 ;; rustup component add rust-analysis rust-src
@@ -279,3 +290,8 @@
 (require 'atomic-chrome)
 
 ;; (window-numbering-mode 1)
+
+(midnight-delay-set 'midnight-delay "21:00pm")
+(add-hook 'midnight-hook (lambda ()
+                           (message "是时候休整清理一天中最后任务了")
+                           ))
