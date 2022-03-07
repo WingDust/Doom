@@ -76,6 +76,24 @@
   (insert "String")
   )
 
+;; (defvar iskeyword 2 "to make iskeyword")
+(setq iskeyword 2)
+(defun toggle-iskeyword ()
+  (interactive)
+  (cond
+   (
+    (= iskeyword  1)
+        (modify-syntax-entry ?_ "_")
+        (setq iskeyword 2)
+    )
+   (
+    (= iskeyword  2)
+        (modify-syntax-entry ?_ "w")
+        (setq iskeyword 1)
+    )
+   )
+  )
+
 (defun create-scratch-buffer nil
    "create a scratch buffer"
    (interactive)

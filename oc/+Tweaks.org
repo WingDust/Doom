@@ -99,7 +99,26 @@
   (insert "String")
   )
 #+end_src
-* 
+* 切换判断连字符词的选择
+#+begin_src emacs-lisp
+;; (defvar iskeyword 2 "to make iskeyword")
+(setq iskeyword 2)
+(defun toggle-iskeyword ()
+  (interactive)
+  (cond
+   (
+    (= iskeyword  1)
+        (modify-syntax-entry ?_ "_")
+        (setq iskeyword 2)
+    )
+   (
+    (= iskeyword  2)
+        (modify-syntax-entry ?_ "w")
+        (setq iskeyword 1)
+    )
+   )
+  )
+#+end_src
 * 创建 scratch bufferr
 #+begin_quote
 用于当不小心将 =*scratch*= kill
@@ -112,3 +131,26 @@
    (lisp-interaction-mode))      
 #+end_src
 - [[https://stackoverflow.com/questions/234963/re-open-scratch-buffer-in-emacs][Re-open *scratch* buffer in Emacs?]]
+* 将当前行下的 , 转成 ，
+#+begin_src emacs-lisp
+(defun comma-to-chinese()
+        "将当前行下的 , 转成 ，"
+        (interactive)
+        (let ((pos (line-beginning-position)))
+                (end-of-line)
+                (set-mark pos))
+
+        (let (
+                (p1 (region-beginning))
+                (p2 (region-end)))
+        (save-restriction
+          (narrow-to-region p1 p2)
+          (goto-char (point-min))
+          (while (search-forward "," nil t)
+            (replace-match "，" nil t)
+            )
+          )
+        )
+  )
+
+#+end_src

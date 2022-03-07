@@ -95,6 +95,7 @@
 ;;(package! org-starless :recipe (:host github :repo "TonCherAmi/org-starless"))
 
 (package! auto-save :recipe (:host github :repo "manateelazycat/auto-save"))
+;; (package! emacs-application-framework :recipe (:host github :repo "emacs-eaf/emacs-application-framework"))
 ;; (package! nox :recipe (:host github :repo "manateelazycat/nox"))
 
 ;; rust development config
