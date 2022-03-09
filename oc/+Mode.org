@@ -422,6 +422,6 @@
 #+end_src
 * git-auto-commit-mode
 #+begin_src emacs-lisp
-()
+;;()
 #+end_src
 
