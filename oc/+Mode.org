@@ -422,6 +422,8 @@
 #+end_src
 * git-auto-commit-mode
 #+begin_src emacs-lisp
+(setq-default gac-automatically-push-p 1)
+(git-auto-commit-mode 1)
 ;;()
 #+end_src
 
