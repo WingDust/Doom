@@ -416,4 +416,12 @@
                            ))
 #+end_src
 
+* indium
+#+begin_src emacs-lisp
+(require 'indium)
+#+end_src
+* git-auto-commit-mode
+#+begin_src emacs-lisp
+
+#+end_src
 
