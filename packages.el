@@ -86,10 +86,12 @@
 (package! vlf)
 
 ;; (package! centaur-tabs)
-;; (package! window-numbering)
 
 (package! atomic-chrome)
 (package! sphinx-doc)
+
+(package! indium)
+(package! git-auto-commit-mode)
 
 (package! org-appear :recipe (:host github :repo "awth13/org-appear"))
 ;;(package! org-starless :recipe (:host github :repo "TonCherAmi/org-starless"))
