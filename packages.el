@@ -85,7 +85,7 @@
 (package! good-scroll)
 (package! vlf)
 
-;; for push testaaaaaaaaasaa
+;; for push testaaaaaaaaasaass
 ;; (package! centaur-tabs)
 
 (package! atomic-chrome)
