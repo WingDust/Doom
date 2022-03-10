@@ -295,3 +295,19 @@
 (add-hook 'midnight-hook (lambda ()
                            (message "是时候休整清理一天中最后任务了")
                            ))
+
+(require 'indium)
+
+(setq-default gac-automatically-push-p 1)
+
+;; (git-auto-commit-mode 1)
+   (defun turn-on-auto-commit-push()
+     (if
+        (equal "true" (string-trim (shell-command-to-string "git rev-parse --is-inside-work-tree")))
+         (git-auto-commit-mode 1)
+         )
+     ;; (let ((proc (start-process "git" "*is-git*" "git" "rev-parse" "--is-inside-work-tree")))
+      ;; (set-process-sentinel proc 'gac-process-sentinel)
+      ;; (set-process-filter proc 'gac-process-filter))
+     )
+   (add-hook 'find-file-hook 'turn-on-auto-commit-push)
