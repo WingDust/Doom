@@ -180,7 +180,7 @@
 (set-window-buffer nil (current-buffer))
 #+end_src
 - [[https://github.com/hlissner/doom-emacs/issues/567][ How to add padding/margins to Emacs buffers?]]
-- 
+- [[https://pxaka.tokyo/blog/2019/emacs-buffer-list-update-hook/][line-spacing を制御する]]
 
 * 通过将窗口分割线与背景色一样来隐藏窗口分割线
 #+begin_src emacs-lisp
