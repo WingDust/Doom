@@ -88,7 +88,7 @@
 ;; for paa
 ;; (package! centaur-tabs)
 
-(package! grip)
+(package! grip-mode)
 (package! atomic-chrome)
 (package! sphinx-doc)
 
