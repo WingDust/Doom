@@ -55,6 +55,10 @@
 (defun compile-my-config()
   (interactive)
   
+(cl-case system-type
+  ('windows-nt (message "qq"))
+  ('gnu/linux (message "q"))
+  )
   (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Config.org")
   (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+KeyBinding.org")
   (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Org.org")
