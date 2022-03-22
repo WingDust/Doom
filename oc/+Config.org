@@ -11,8 +11,8 @@
   (interactive)
     (let
         (
-        (default-directory "e:/spacemacs/emacs26-3/.doom.d/")
-        (explicit-shell-file-name "E:/PowerShell/7/pwsh.exe"))
+        ;; (default-directory "e:/spacemacs/emacs26-3/.doom.d/")
+        ;; (explicit-shell-file-name "E:/PowerShell/7/pwsh.exe"))
         ;;(message (shell-command-to-string "git status -s"))
         (shell-command-to-string "git status -s")
     )
