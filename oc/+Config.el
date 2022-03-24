@@ -4,8 +4,8 @@
   (interactive)
     (let
         (
-        (default-directory "e:/spacemacs/emacs26-3/.doom.d/")
-        (explicit-shell-file-name "E:/PowerShell/7/pwsh.exe"))
+        ;; (default-directory "e:/spacemacs/emacs26-3/.doom.d/")
+        ;; (explicit-shell-file-name "E:/PowerShell/7/pwsh.exe"))
         ;;(message (shell-command-to-string "git status -s"))
         (shell-command-to-string "git status -s")
     )
@@ -40,23 +40,39 @@
     (byte-compile-file tan)
     )
 )
+
 (defun compile-my-config()
   (interactive)
+  
+(cl-case system-type
+  ('windows-nt
   (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Config.org")
   (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+KeyBinding.org")
   (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Org.org")
   (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Mode.org")
   (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Tweaks.org")
   (byte-recompile-directory "e:/spacemacs/emacs26-3/.doom.d/oc/")
+   )
+  ('gnu/linux
+  (compile-Org-to-elisp "~/.doom.d/oc/+Config.org")
+  (compile-Org-to-elisp "~/.doom.d/oc/+KeyBinding.org")
+  (compile-Org-to-elisp "~/.doom.d/oc/+Org.org")
+  (compile-Org-to-elisp "~/.doom.d/oc/+Mode.org")
+  (compile-Org-to-elisp "~/.doom.d/oc/+Tweaks.org")
+  (byte-recompile-directory "~/.doom.d/oc/")
+   )
+  )
 )
 
+
 (add-hook 'kill-emacs-hook (lambda ()
-                            (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Config.org")
-                            (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+KeyBinding.org")
-                            (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Org.org")
-                            (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Mode.org")
-                            (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Tweaks.org")
-                            (byte-recompile-directory "e:/spacemacs/emacs26-3/.doom.d/oc/")
+                             (compile-my-config)
+                            ;; (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Config.org")
+                            ;; (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+KeyBinding.org")
+                            ;; (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Org.org")
+                            ;; (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Mode.org")
+                            ;; (compile-Org-to-elisp "e:/spacemacs/emacs26-3/.doom.d/oc/+Tweaks.org")
+                            ;; (byte-recompile-directory "e:/spacemacs/emacs26-3/.doom.d/oc/")
                              ;; (let ((last-org-doom-changelog (doom-ischange)))
                              ;;     ;;(f-write-text  last-org-doom-changelog 'utf-8
                              ;;     ;;            "E:\\spacemacs\\emacs26-3\\.doom.d\\t.txt")
@@ -119,6 +135,12 @@
 ;;           )
 (setq-default line-spacing 0.2)                ;行间距
 (setq-default left-margin-width 1 right-margin-width 1)
+
+(defun my-linespacing ()
+  (unless (minibufferp)
+    (setq-local line-spacing 0.3)))
+(add-hook 'buffer-list-update-hook #'my-linespacing)
+
 (set-window-buffer nil (current-buffer))
 
 ;; (set-face-foreground 'vertical-border "#282c34")
