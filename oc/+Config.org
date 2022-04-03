@@ -18,6 +18,7 @@
     )
   )
 
+    
 
 (setq start-org-doom-changelog (doom-ischange))
 
