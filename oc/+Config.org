@@ -105,7 +105,6 @@
 #+end_src
 - [[https://github.com/hlissner/doom-emacs/issues/4498][What is the correct way to profile Doom startup?]]
 
-
 * Improve I/O
 
 #+begin_src emacs-lisp
@@ -157,7 +156,7 @@
 ;;  )
 #+end_src
 
-*  使用系统废纸篓删除文件
+* 使用系统废纸篓删除文件
 
 #+begin_src emacs-lisp
 ;;(setq delete-by-moving-to-trash t)
