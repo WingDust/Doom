@@ -127,8 +127,8 @@
 ;; (package! org-center-headings :recipe (:host  github :repo "amno1/org-center-headings"))
 ;; (add-load-path! "~/.doom.d/local/org-center-headings.el")
 ;; (package! org-center-headings :recipe (:local-repo "~/.doom.d/local/org-center-headings.el"))
-(package! org-center-headings :recipe (:local-repo "e:/spacemacs/emacs26-3/.doom.d/local/org-center-headings.el"))
-E:/spacemacs/emacs26-3/.doom.d/local
+(add-load-path! "e:/spacemacs/emacs26-3/.doom.d/local/org-center-headings.el")
+;; (package! org-center-headings :recipe (:local-repo "e:/spacemacs/emacs26-3/.doom.d/local/org-center-headings.el"))
 
 ;;(package! ob-powershell :recipe (:local-repo "~/.doom.d/local/ob-powershell.el"))
 ;;(add-load-path! "~/.doom.d/local/ob-powershell.el")
