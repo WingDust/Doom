@@ -88,6 +88,8 @@
 ;; for paa
 ;; (package! centaur-tabs)
 
+(package! pangu-spacing)
+
 ;; (package! grip-mode)
 (package! atomic-chrome)
 (package! sphinx-doc)
@@ -121,6 +123,7 @@
 
 (package! beancount-mode :recipe (:host github :repo "beancount/beancount-mode"))
 
+(package! eye-care :recipe (:host  github :repo "Emacs-Phoenix/eye-care"))
 (package! eye-care :recipe (:host  github :repo "Emacs-Phoenix/eye-care"))
 
 ;;(package! ob-powershell :recipe (:local-repo "~/.doom.d/local/ob-powershell.el"))
