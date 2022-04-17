@@ -125,7 +125,7 @@
 
 (package! eye-care :recipe (:host  github :repo "Emacs-Phoenix/eye-care"))
 
-(package!  :recipe (:host  github :repo "Emacs-Phoenix/eye-care"))
+(package! keyfreq :recipe (:host  github :repo "dacap/keyfreq "))
 ;; (package! org-center-headings :recipe (:host  github :repo "amno1/org-center-headings"))
 ;; (add-load-path! "~/.doom.d/local/org-center-headings.el")
 ;; (package! org-center-headings :recipe (:local-repo "~/.doom.d/local/org-center-headings.el"))
