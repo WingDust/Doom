@@ -124,6 +124,8 @@
 (package! beancount-mode :recipe (:host github :repo "beancount/beancount-mode"))
 
 (package! eye-care :recipe (:host  github :repo "Emacs-Phoenix/eye-care"))
+
+(package!  :recipe (:host  github :repo "Emacs-Phoenix/eye-care"))
 ;; (package! org-center-headings :recipe (:host  github :repo "amno1/org-center-headings"))
 ;; (add-load-path! "~/.doom.d/local/org-center-headings.el")
 ;; (package! org-center-headings :recipe (:local-repo "~/.doom.d/local/org-center-headings.el"))
