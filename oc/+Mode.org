@@ -441,7 +441,7 @@
 
 * pangu
 #+begin_src emacs-lisp
-(glo)
+(global-pangu-spacing-mode)
 #+end_src
 
 
