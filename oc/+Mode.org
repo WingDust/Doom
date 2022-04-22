@@ -445,6 +445,6 @@
 
 * keyfreq
 #+begin_src emacs-lisp
-(g-mode)
+(keyfreq-mode)
 #+end_src
 
