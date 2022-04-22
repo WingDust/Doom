@@ -438,10 +438,13 @@
 #+end_src
 - 
 
-
 * pangu
 #+begin_src emacs-lisp
 (global-pangu-spacing-mode)
 #+end_src
 
+* keyfreq
+#+begin_src emacs-lisp
+(g-mode)
+#+end_src
 
