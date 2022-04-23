@@ -14,9 +14,10 @@
         ;; (default-directory "e:/spacemacs/emacs26-3/.doom.d/")
         ;; (explicit-shell-file-name "E:/PowerShell/7/pwsh.exe"))
         ;;(message (shell-command-to-string "git status -s"))
-        (shell-command-to-string "git status -s")
+        ;; (shell-command-to-string "git status -s")
     )
   )
+)
 
     
 
@@ -26,7 +27,7 @@
 #+end_src
 - [[https://www.eigenbahn.com/2020/01/19/painless-emacs-shell-commands][Painless Emacs shell commands]]
   
-* 启动速度
+* COMMENT 启动速度
 
 #+begin_src emacs-lisp
 (defvar last-file-name-handler-alist file-name-handler-alist)
