@@ -120,7 +120,7 @@
 (setq doom-font
       ;;(font-spec :family "Source Code Variable"
       ;;(font-spec :family "Sarasa Mono TC Light"
-      (font-spec :family "Fira Code"
+      (font-spec :family "Cascadia Mono"
                  :size 18
        )
       )
