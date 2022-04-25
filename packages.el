@@ -132,6 +132,7 @@
 ;; (add-load-path! "e:/spacemacs/emacs26-3/.doom.d/local/org-center-headings.el")
 (add-load-path! "e:/spacemacs/emacs26-3/.doom.d/local/")
 (require 'org-center-headings)
+(require 'pp)
 ;; (package! org-center-headings :recipe (:local-repo "e:/spacemacs/emacs26-3/.doom.d/local/org-center-headings.el"))
 
 ;;(package! ob-powershell :recipe (:local-repo "~/.doom.d/local/ob-powershell.el"))
