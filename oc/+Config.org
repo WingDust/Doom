@@ -26,13 +26,12 @@
 ;; git -C e:/spacemacs/emacs26-3/.doom.d/ status -s 非在 git 目录下也可查看状态
 #+end_src
 - [[https://www.eigenbahn.com/2020/01/19/painless-emacs-shell-commands][Painless Emacs shell commands]]
-- 
   
 * COMMENT 这个标题下代码块不会被编译到最后的 el 文件中
 #+begin_src emacs-lisp
-我不会被
+我不会被编译
 #+end_src
-* COMMENT 启动速度
+* 启动速度
 #+begin_src emacs-lisp
 
 (defvar last-file-name-handler-alist file-name-handler-alist)
