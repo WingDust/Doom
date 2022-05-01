@@ -29,6 +29,7 @@
   
 * COMMENT 启动速度
 #+begin_src emacs-lisp
+
 (defvar last-file-name-handler-alist file-name-handler-alist)
 (setq gc-cons-threshold 402653184
       gc-cons-percentage 0.6
@@ -45,6 +46,11 @@
         file-name-handler-alist last-file-name-handler-alist))
 
 
+#+end_src
+- [[https://github.com/hlissner/doom-emacs/issues/4498][What is the correct way to profile Doom startup?]]
+
+* compile my config
+#+begin_src emacs-lisp
 (defun compile-Org-to-elisp (file)
   (let ((tan (concat
              (file-name-sans-extension file) ".el")
@@ -103,7 +109,6 @@
                              ;;   )
                              ))
 #+end_src
-- [[https://github.com/hlissner/doom-emacs/issues/4498][What is the correct way to profile Doom startup?]]
 
 * Improve I/O
 
