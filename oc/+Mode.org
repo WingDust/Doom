@@ -386,6 +386,8 @@
 ;;   (add-hook relativenumber  '(lambda ()
 ;;                                (menu-bar--display-line-numbers-mode-relative)
 ;;                                )))
+
+                               (menu-bar--display-line-numbers-mode-relative)
 #+end_src
 * eye-care
 #+begin_src emacs-lisp
