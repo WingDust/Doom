@@ -282,6 +282,10 @@
 ;;                                (menu-bar--display-line-numbers-mode-relative)
 ;;                                )))
 
+(setq display-line-numbers-type 'relative)
+(global-display-line-numbers-mode)
+;;(menu-bar--display-line-numbers-mode-relative)
+
 (require 'eye-care)
 
 (require 'beancount)
@@ -311,3 +315,7 @@
       ;; (set-process-filter proc 'gac-process-filter))
      )
    (add-hook 'find-file-hook 'turn-on-auto-commit-push)
+
+(global-pangu-spacing-mode)
+
+(keyfreq-mode)

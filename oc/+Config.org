@@ -260,7 +260,7 @@ C-x c coding 以coding编码执行接下去输入的命令，如 C-x c utf-8 C-x
 (defun noalias-set-github-mirror (oldfunc &rest args)
    (let ((url (apply oldfunc args)))
       (replace-regexp-in-string (rx (group "github.com"))
-                                "" url nil nil 1)))
+                                "mirror.ghproxy.com" url nil nil 1)))
 #+end_src
 * 
 

@@ -387,7 +387,8 @@
 ;;                                (menu-bar--display-line-numbers-mode-relative)
 ;;                                )))
 
-(setq )
+(setq display-line-numbers-type 'relative)
+(global-display-line-numbers-mode)
 ;;(menu-bar--display-line-numbers-mode-relative)
 #+end_src
 * eye-care

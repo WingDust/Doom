@@ -7,10 +7,12 @@
         ;; (default-directory "e:/spacemacs/emacs26-3/.doom.d/")
         ;; (explicit-shell-file-name "E:/PowerShell/7/pwsh.exe"))
         ;;(message (shell-command-to-string "git status -s"))
-        (shell-command-to-string "git status -s")
+        ;; (shell-command-to-string "git status -s")
     )
   )
+)
 
+    
 
 (setq start-org-doom-changelog (doom-ischange))
 
@@ -30,7 +32,6 @@
   (setq gc-cons-threshold 16777216
         gc-cons-percentage 0.1
         file-name-handler-alist last-file-name-handler-alist))
-
 
 (defun compile-Org-to-elisp (file)
   (let ((tan (concat
@@ -168,3 +169,9 @@
 ;;指定当前buffer的写入编码，只对当前buffer有效，即此命令写在配置文件中无效，只能通过M-x来执行
 ;; (setq default-buffer-file-coding-system 'utf-8-unix)
 ;;指定新建buffer的默认编码为utf-8-unix，换行符为unix的方式
+
+(advice-add 'straight-vc-git--encode-url :around #'noalias-set-github-mirror)
+(defun noalias-set-github-mirror (oldfunc &rest args)
+   (let ((url (apply oldfunc args)))
+      (replace-regexp-in-string (rx (group "github.com"))
+                                "mirror.ghproxy.com" url nil nil 1)))

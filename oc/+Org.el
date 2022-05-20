@@ -181,25 +181,25 @@
 
 ;; 目前只在高版本 org 支持
 
-(defvar idle-agenda-timer nil)
+;; (defvar idle-agenda-timer nil)
 
-(defun idle-show-agenda()
-        (org-agenda nil "n")
-  )
+;; (defun idle-show-agenda()
+;;         (org-agenda nil "n")
+;;   )
 
-(defun idle-show-agenda-set-timer()
-  ;; (interactive)
-   (setq idle-agenda-timer 
-       (run-with-idle-timer 3600 t 'idle-show-agenda)
-     )
-    )
-(idle-show-agenda-set-timer)
-(defun disable-idle-show-agenda()
-  (interactive)
-  (when idle-agenda-timer
-    (cancel-timer idle-agenda-timer)
-    (setq idle-agenda-timer nil)
-    )
-)
+;; (defun idle-show-agenda-set-timer()
+;;   ;; (interactive)
+;;    (setq idle-agenda-timer 
+;;        (run-with-idle-timer 3600 t 'idle-show-agenda)
+;;      )
+;;     )
+;; (idle-show-agenda-set-timer)
+;; (defun disable-idle-show-agenda()
+;;   (interactive)
+;;   (when idle-agenda-timer
+;;     (cancel-timer idle-agenda-timer)
+;;     (setq idle-agenda-timer nil)
+;;     )
+;; )
 
 (setq system-time-locale "C")
