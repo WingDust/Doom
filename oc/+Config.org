@@ -256,7 +256,11 @@ C-x c coding 以coding编码执行接下去输入的命令，如 C-x c utf-8 C-x
 - [[https://emacs.stackexchange.com/questions/22727/pasting-text-from-clipboard-why-m-instead-of-linebreaks][Pasting Text from Clipboard - why ^M instead of linebreaks?]]
 * straight
 #+begin_src emacs-lisp
-
+(advice-add 'straight-vc-git--encode-url :around #'noalias-set-github-mirror)
+(defun noalias-set-github-mirror (oldfunc &rest args)
+   (let ((url (apply oldfunc args)))
+      (replace-regexp-in-string (rx (group "github.com"))
+                                "" url nil nil 1)))
 #+end_src
 * 
 
