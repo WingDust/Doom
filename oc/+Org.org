@@ -32,7 +32,7 @@
 #+begin_src emacs-lisp
 ;;;'org-babel-execute:python
 (setq python-shell-interpreter "e:\\python\\python3.10.5\\python3.exe"
-        org-babel-python-command "e:\\python\\python3.8.1\\python.exe"
+        org-babel-python-command "e:\\python\\python3.10.5\\python3.exe"
         )
 #+end_src
 
